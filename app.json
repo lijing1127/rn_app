@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "rn-antd-mall",
+    "sdkVersion": "21.0.0",
+    "description": "mall of rn antd",
+    "slug": "rn-antd-mall",
+    "orientation": "portrait",
+    "privacy": "public",
+    "version": "1.0.0",
+    "icon": "https://zos.alipayobjects.com/rmsportal/aLYxQXfGOIgXZLKHadSi.png",
+    "loading": {
+      "icon": "https://zos.alipayobjects.com/rmsportal/aLYxQXfGOIgXZLKHadSi.png"
+    }
+  }
+}
