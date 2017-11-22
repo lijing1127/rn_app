@@ -1,48 +1,37 @@
-
-import React from "react";
-import PropTypes from 'prop-types';
+import React, {Component} from "react";
 import {
   View,
-  Text,
   Image,
+  TouchableOpacity,
 } from "react-native";
-import Carousel from "react-native-looped-carousel";
+import { Carousel, } from "antd-mobile";
 
-const propTypes = {
-  imageStyle: PropTypes.object,
-  imageArray: PropTypes.array,
+export default class ProductCarousel extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <View style={{alignItems:'center',justifyContent:'center'}}>
+        <View style={{width: gScreen.width/1.5, height: gScreen.width/1.5}}>
+          <Carousel
+            dots={true}
+                autoplay={true}
+                infinite
+                selectedIndex={1}
+              >
+                {this.props.data.map(ii => (
+                    <TouchableOpacity key={ii}>
+                      <Image
+                        source={{uri: `https://zos.alipayobjects.com/rmsportal/${ii}.png`}}
+                        style={{width: gScreen.width/1.5, height: gScreen.width/1.5}}
+                      />
+                    </TouchableOpacity>
+                ))}
+              </Carousel> 
+        </View>
+            
+      </View>
+    );
+  }
 }
-
-
-const ProductCarousel = ({
-  imageStyle,
-  imageArray,
-}) => {
-  const carouselImages = imageArray.map((item) => (
-    <Image 
-      key={item.url}
-      resizeMode="stretch" 
-      source={item.url}
-      style={{width: gScreen.width/1.5, height: gScreen.width/1.5,}} 
-    />
-  ))
-  return (
-    <Carousel
-      delay={2000}
-      style={{width: gScreen.width/1.5, height: gScreen.width/1.5,marginLeft:gScreen.width/6}}
-      autoplay = {false}
-      bullets={true}
-      bulletStyle={{top: 8}}
-      chosenBulletStyle={{top: 8}}
-    >
-       {carouselImages}
-    </Carousel>
-  )
-}
-
-ProductCarousel.propTypes = propTypes;
-ProductCarousel.defaultProps = {
-  imageArray: [],
-}
-
-export default ProductCarousel;

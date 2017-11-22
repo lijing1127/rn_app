@@ -46,7 +46,7 @@ export default class AllGoods extends Component {
 				description={price}
 				textStyle={{fontSize:gFontSize.centerText}}
 				descriptionStyle={{fontSize:gFontSize.smallText}}
-				
+				onPress={() => this.props.navigation.navigate(nav)}
 			/>			
 		)
 	}
