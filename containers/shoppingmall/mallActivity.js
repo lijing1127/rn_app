@@ -3,7 +3,7 @@ import {
 	View,
 	Text,
 } from "react-native";
-import MallActivityList from "./mallActivityList";
+import MallActivityList from "../../components/public/mallActivityList";
 
 
 export default class MallActivity extends Component {
