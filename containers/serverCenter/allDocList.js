@@ -23,7 +23,6 @@ export default class AllDocList extends Component {
 		return (
 			<DoctorList
 				key={name}
-				touchableStyle={styles.docList}
 				source={img}
 				imageStyle={styles.docImg}
 				name={name}
