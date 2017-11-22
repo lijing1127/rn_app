@@ -13,11 +13,11 @@ const propTypes = {
 	source: Image.propTypes.source,
 	nameStyle: Text.propTypes.style,
 	imageStyle: Image.propTypes.style,
-	touchableStyle: PropTypes.object,
 	info: PropTypes.string,
-	infoStyle: PropTypes.object,
-	viewStyle: PropTypes.object,
-	docgoStyle: PropTypes.object,
+	touchableStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	infoStyle:Text.propTypes.style,
+	viewStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	docgoStyle: Text.propTypes.style,
 }
 
 const DoctorList = (({
@@ -26,9 +26,9 @@ const DoctorList = (({
 	source,
 	nameStyle,
 	imageStyle,
-	touchableStyle,
 	itemsArray,
 	info,
+	touchableStyle,
 	infoStyle,
 	viewStyle,
 	docgoStyle,

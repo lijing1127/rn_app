@@ -40,7 +40,7 @@ export default class ShowIndex extends Component {
 				<IconBtn dataIcon={dataIcon} />
 				<CustomTitle 
 					title="健康管理师"
-					rightText={"更多"}
+					rightText="更多"
 					style={{borderBottomWidth: 1,paddingVertical:10}}
 				/>
 				<ScrollList />
