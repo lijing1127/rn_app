@@ -16,7 +16,7 @@ export default class HeadLayOut extends React.Component{
 	renderItem = () => {
 		return (
 			<View style={{flexDirection: "row",marginVertical: 10}}>
-				<TouchableOpacity style={{width:'50%',justifyContent:'center',alignItems:'center'}}>
+				<TouchableOpacity style={{width:'50%',justifyContent:'center',alignItems:'center'}} onPress={() => this.props.navigation.navigate("Yiintegral")}>
 					<Text style={{color: gColor.whiteColor}}>易积分 999</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={{width:'50%',justifyContent:'center',alignItems:'center'}} onPress={() => this.props.navigation.navigate("CashBalance")}>

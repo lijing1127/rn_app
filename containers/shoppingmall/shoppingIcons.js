@@ -32,7 +32,7 @@ export default class ShoppingIcon extends Component {
 				text={text}
 				textStyle={styles.textStyle}
 				onPress={() => this.props.navigation.navigate(nav)}
-			/> 
+			/>
 		)
 	}
 

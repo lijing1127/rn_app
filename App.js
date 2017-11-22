@@ -9,10 +9,15 @@ require('./components/GlobalContants');
 
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
 import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
+
+import Yiintegral from "./containers/personalCenter/integral/Yiintegral"; //易积分
+
+import Cart from "./containers/shoppingmall/Cart/Cart"; //购物车
+import Category from "./containers/shoppingmall/categories/Category";//分类
+
 import CashBalance from "./containers/personalCenter/CashBalance/CashBalance"; //现金余额
 import Recharge from "./containers/personalCenter/CashBalance/recharge"; //充值
 import Withdrawals from "./containers/personalCenter/CashBalance/Withdrawals"; //提现
-
 
 
 const getOptions = () => ({
@@ -44,6 +49,18 @@ const scenes = {
 
   PersonalInfo: {
     screen: PersonalInfo,
+  },
+
+  Cart: {
+    screen: Cart,
+  },
+
+  Category: {
+    screen: Category,
+  },
+
+  Yiintegral: {
+    screen: Yiintegral,
   },
 
   CashBalance: {
