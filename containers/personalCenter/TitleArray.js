@@ -34,7 +34,7 @@ export default class TitleArray extends Component{
 					borderBottomColor:gColor.borderColors,
 					backgroundColor:gColor.whiteColor,
 				}}
-				
+				redirectPress={() => this.props.navigation.navigate("HealthRecord")}
 			/>
 		)
 	}
