@@ -14,9 +14,9 @@ const propTypes = {
 	title: PropTypes.string,
 	rightText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	rightIcon: PropTypes.element,
-	textStyle: PropTypes.object,
+	textStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 	rightTextStyle: PropTypes.object,
-	style: PropTypes.object,
+	style: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 	touchableStyle: PropTypes.object,
 	redirectPress: PropTypes.func,
 }
