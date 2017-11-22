@@ -12,11 +12,11 @@ require("../GlobalContants");
 const propTypes = {
 	onPress: PropTypes.func,
 	title: PropTypes.string,
-	rightText: PropTypes.string && PropTypes.number,
+	rightText: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	rightIcon: PropTypes.element,
 	textStyle: PropTypes.object,
 	rightTextStyle: PropTypes.object,
-	style: TouchableOpacity.propTypes.style,
+	style: PropTypes.object,
 	touchableStyle: PropTypes.object,
 	redirectPress: PropTypes.func,
 }
