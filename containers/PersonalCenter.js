@@ -1,8 +1,11 @@
 import React, {Component} from "react";
 import {
-	View,
+	ScrollView,
 	Text,
 } from "react-native";
+import HeadLayOut from "./personalCenter/HeadLayOut";
+import MyOrder from "./personalCenter/myOrder/MyOrder";
+import TitleArray from "./personalCenter/TitleArray";
 
 export default class ShowIndex extends Component {
 	constructor(props) {
@@ -10,9 +13,11 @@ export default class ShowIndex extends Component {
 	}
 	render() {
 		return (
-			<View>
-				<Text>这是个人中心</Text>
-			</View>
+			<ScrollView>
+				<HeadLayOut Per={true} />
+				<MyOrder />
+				<TitleArray />
+			</ScrollView>
 		);
 	}
 }
