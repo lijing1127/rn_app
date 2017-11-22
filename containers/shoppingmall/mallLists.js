@@ -3,7 +3,7 @@ import {
 	View,
 	Text,
 } from "react-native";
-import ImageButton from "../public/ImageButton";
+import ImageButton from "../../components/public/ImageButton";
 
 
 export default class MallList extends Component {
