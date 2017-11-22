@@ -8,11 +8,15 @@ import ImageButton from "../../components/public/ImageButton";
 
 export default class ShoppingIcon extends Component {
 
+	constructor(props) {
+		super(props);		
+	}	
+
 	shoppingIcons = [
-		{text:'分类商品',source:require('../../assets/images/u276.png'), nav: "Category"},
-		{text:'全部商品',source:require('../../assets/images/u276.png'), nav: "AllCategory"},
-		{text:'购物车',source:require('../../assets/images/u276.png'), nav: "Cart"},
-		{text:'我的订单',source:require('../../assets/images/u276.png'), nav: "OrderAndAddr"},
+		{text:'分类商品',source:require('../../assets/images/u276.png'), nav: "AllGoods"},
+		{text:'全部商品',source:require('../../assets/images/u276.png'), nav: "AllGoods"},
+		{text:'购物车',source:require('../../assets/images/u276.png'), nav: "AllGoods"},
+		{text:'我的订单',source:require('../../assets/images/u276.png'), nav: "AllGoods"},
 	]
 
 
@@ -33,13 +37,13 @@ export default class ShoppingIcon extends Component {
 	}
 
 	render(){
+
 		return(
 				<View style={styles.viewStyle}>
 					{this.shoppingIcons.map(this._renderShoppingIcon)}
 				</View>
 		)
 	}
-
 
 }
 
