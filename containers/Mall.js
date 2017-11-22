@@ -23,7 +23,7 @@ export default class ShowIndex extends Component {
 		return (
 			<ScrollView>
 				<CustomCarousel data={this.state.data} />
-				<ShoppingIcon />
+				<ShoppingIcon navigation={this.props.navigation} />
 				<CustomTitle 
 					title="热门推荐"
 					rightText="更多 》"
