@@ -2,6 +2,7 @@ import React from "react";
 import { StackNavigator } from 'react-navigation';
 import { TabBar, SearchBar, List } from 'antd-mobile';
 import Home from './src/Home';
+import AllGoods from './containers/shoppingmall/AllGoods/AllGoods';
 
 require('./components/GlobalContants');
 
@@ -18,6 +19,9 @@ const scenes = {
   Home: {
     screen: Home,
     navigationOptions: getOptions(),
+  },
+  AllGoods: {
+    screen: AllGoods,
   },
 };
 
