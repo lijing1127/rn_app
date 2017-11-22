@@ -5,6 +5,10 @@ import Home from './src/Home';
 
 require('./components/GlobalContants');
 
+
+import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
+import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
+
 const getOptions = () => ({
   header: null,
   // headerStyle: {
@@ -18,6 +22,12 @@ const scenes = {
   Home: {
     screen: Home,
     navigationOptions: getOptions(),
+  },
+  RegisterCode: {
+    screen: RegisterCode,
+  },
+  PersonalInfo: {
+    screen: PersonalInfo,
   },
 };
 
