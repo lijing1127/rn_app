@@ -6,9 +6,8 @@ import {
 import { FontAwesome } from '@expo/vector-icons';
 import CustomTitle from '../../components/public/CustomTitle'; 
 
-
 var TextBtn = [
-	{title:'我的健康档案'},
+	{title:'我的健康档案',nav: "HealthRecord"},
 	{title:'注册邀请码'},
 	{title:'我的个人资料'},
 	{title:'认证'},
@@ -30,11 +29,9 @@ export default class TitleArray extends Component{
 				title={item.title}
 				rightIcon={<FontAwesome name="angle-double-right" size={18} />}
 				textStyle={{fontSize:gFontSize.bigText}}
-				style={{paddingVertical:10,borderBottomWidth:1,
-					borderBottomColor:gColor.borderColors,
-					backgroundColor:gColor.whiteColor,
-				}}
-				
+				style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
+					backgroundColor:gColor.whiteColor}}
+				redirectPress={() => this.props.navigation.navigate(item.nav)}
 			/>
 		)
 	}
@@ -44,8 +41,7 @@ export default class TitleArray extends Component{
 			<View>
 				{
 					TextBtn.map((item)=>this.renderText(item))
-				}
-				
+				}	
 			</View>
 		)
 	}

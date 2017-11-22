@@ -30,6 +30,7 @@ export default class MyOrder extends React.Component{
 					style={{borderBottomWidth: 1,paddingVertical:10,backgroundColor:gColor.whiteColor,
 						borderBottomColor:gColor.borderColors}}
 					textStyle={{fontSize:gFontSize.bigText}}
+					onPress={()=> this.props.navigation.navigate('')}
 				/>
 				<ImageArray 
 					arrItems={this.state.ImageBtn}
