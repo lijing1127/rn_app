@@ -14,11 +14,17 @@ import {
 import { TabBar, SearchBar, List } from 'antd-mobile';
 import { Font } from 'expo';
 
+import ShowIndex from "../containers/ShowIndex"; //首页
+import ServerCenter from "../containers/ServerCenter"; //服务中心
+import HealthManager from "../containers/HealthManager"; //健康管理师
+import Mall from "../containers/Mall"; //商城
+import PersonalCenter from "../containers/PersonalCenter"; //个人中心
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'redTab',
+      selectedTab: 'indexTab',
     };
   }
 
@@ -35,8 +41,10 @@ class Home extends React.Component {
   renderContent(pageText) {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
-        <SearchBar placeholder="搜索" showCancelButton/>
-        <Text style={{ margin: 50 }}>{pageText}</Text>
+        <View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+          <SearchBar placeholder="搜索" showCancelButton />
+        </View>
+        {pageText}
       </View>
     );
   }
@@ -51,17 +59,20 @@ class Home extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="#ccc">
-        <TabBar.Item title="生活" icon={require('./../assets/images/alipay.png')} selectedIcon={require('./../assets/images/alipay_sel.png')} selected={this.state.selectedTab === 'blueTab'} onPress={() => this.onChangeTab('blueTab')}>
-          {this.renderContent('生活 Tab')}
+        <TabBar.Item title="首页" icon={require('./../assets/images/alipay.png')} selectedIcon={require('./../assets/images/alipay_sel.png')} selected={this.state.selectedTab === 'indexTab'} onPress={() => this.onChangeTab('indexTab')}>
+          {this.renderContent(<ShowIndex />)}
         </TabBar.Item>
-        <TabBar.Item icon={require('./../assets/images/koubei.png')} selectedIcon={require('./../assets/images/koubei_sel.png')} title="口碑" badge={2} selected={this.state.selectedTab === 'redTab'} onPress={() => this.onChangeTab('redTab')}>
-          {this.renderContent('口碑 Tab')}
+        <TabBar.Item icon={require('./../assets/images/koubei.png')} selectedIcon={require('./../assets/images/koubei_sel.png')} title="服务中心" selected={this.state.selectedTab === 'serverCenterTab'} onPress={() => this.onChangeTab('serverCenterTab')}>
+          {this.renderContent(<ServerCenter />)}
         </TabBar.Item>
-        <TabBar.Item icon={require('./../assets/images/friend.png')} selectedIcon={require('./../assets/images/friend_sel.png')} title="朋友" selected={this.state.selectedTab === 'greenTab'} onPress={() => this.onChangeTab('greenTab')}>
-          {this.renderContent('朋友 Tab')}
+        <TabBar.Item icon={require('./../assets/images/friend.png')} selectedIcon={require('./../assets/images/friend_sel.png')} title="健康管理师" selected={this.state.selectedTab === 'healthManagerTab'} onPress={() => this.onChangeTab('healthManagerTab')}>
+          {this.renderContent(<HealthManager />)}
         </TabBar.Item>
-        <TabBar.Item icon={require('./../assets/images/busi.png')} selectedIcon={require('./../assets/images/busi_sel.png')} title="我的" selected={this.state.selectedTab === 'yellowTab'} onPress={() => this.onChangeTab('yellowTab')}>
-          {this.renderContent('我的 Tab')}
+        <TabBar.Item icon={require('./../assets/images/busi.png')} selectedIcon={require('./../assets/images/busi_sel.png')} title="商城" selected={this.state.selectedTab === 'storeTab'} onPress={() => this.onChangeTab('storeTab')}>
+          {this.renderContent(<Mall />)}
+        </TabBar.Item>
+        <TabBar.Item icon={require('./../assets/images/busi.png')} selectedIcon={require('./../assets/images/busi_sel.png')} title="我的" selected={this.state.selectedTab === 'personalTab'} onPress={() => this.onChangeTab('personalTab')}>
+          {this.renderContent(<PersonalCenter />)}
         </TabBar.Item>
       </TabBar>
     );
