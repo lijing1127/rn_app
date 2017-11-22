@@ -27,6 +27,7 @@ export default class ShoppingIcon extends Component {
 				imageStyle={{width: 32, height: 32}} 
 				text={text}
 				textStyle={styles.textStyle}
+				onPress={() => this.props.navigation.navigate(nav)}
 			/>
 		)
 	}
