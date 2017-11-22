@@ -6,10 +6,10 @@ import {
 	StyleSheet,
 } from "react-native";
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
-import ShoppingIcon from '../components/shoppingmall/shoppingIcons';
+import ShoppingIcon from './shoppingmall/shoppingIcons';
 import CustomTitle from '../components/public/CustomTitle';
-import MallList from '../components/shoppingmall/mallLists';
-import Activity from '../components/shoppingmall/activity';
+import MallList from './shoppingmall/mallLists';
+import Activity from './shoppingmall/activity';
 
 
 export default class ShowIndex extends Component {

@@ -4,7 +4,7 @@ import {
 	Text,
 	StyleSheet,
 } from "react-native";
-import ImageButton from "../public/ImageButton";
+import ImageButton from "../../components/public/ImageButton";
 
 export default class ShoppingIcon extends Component {
 
