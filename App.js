@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import { TabBar, SearchBar, List } from 'antd-mobile';
 import Home from './src/Home';
@@ -33,18 +34,39 @@ import Withdrawals from "./containers/personalCenter/CashBalance/Withdrawals"; /
 require('./components/GlobalContants');
 
 const getOptions = () => ({
-  header: null,
-  // headerStyle: {
-  //   backgroundColor: gColor.importColor,
-  //   paddingVertical: 10,
-  // },
-  // headerTintColor: 'white',
+  mode: 'card',
+  gesturesEnabled: true,
+  transitionConfig: () => ({
+    screenInterpolator: sceneProps => {
+        const { layout, position, scene } = sceneProps;
+        const { index } = scene;
+
+        const translateX = position.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [layout.initWidth, 0, 0]
+        });
+
+        const opacity = position.interpolate({
+            inputRange: [index - 1, index - 0.99, index, index + 0.99, index + 1],
+            outputRange: [0, 1, 1, 0.3, 0]
+        });
+
+        return { opacity, transform: [{ translateX }] }
+    }
+})
 });
 
 const scenes = {
   Home: {
     screen: Home,
-    navigationOptions: getOptions(),
+    navigationOptions: {
+      header: <View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+      <SearchBar placeholder="甘净" />
+      </View>,
+      headerStyle: {
+        backgroundColor: gColor.importColor,
+      } ,
+    },
   },
   AllOrders: {
     screen: AllOrders,//全部订单
@@ -113,6 +135,6 @@ const scenes = {
 
 };
 
-const App = StackNavigator(scenes);
+const App = StackNavigator(scenes, getOptions());
 
 export default App;
