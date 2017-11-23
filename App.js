@@ -4,9 +4,11 @@ import { TabBar, SearchBar, List } from 'antd-mobile';
 import Home from './src/Home';
 
 
+
+import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
+
 import AllGoods from './containers/shoppingmall/AllGoods/AllGoods'; //全部商品
 import CategoryDetails from './containers/shoppingmall/AllGoods/CategoryDetails';//商品详情
-
 
 import AllOrders from "./containers/personalCenter/myOrder/AllOrders";//全部订单
 
@@ -27,6 +29,8 @@ import HealthRecord from "./containers/personalCenter/myHealthRecord/HealthRecor
 import DynamicData from "./containers/personalCenter/myHealthRecord/DynamicData";//动态监测数据
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
 import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
+import MyInfoEdit from "./containers/personalCenter/Edit/MyInfoEdit"; //我的信息-编辑
+import ExamineInfoEdit from "./containers/personalCenter/Edit/ExamineInfoEdit"; //审核信息-编辑
 
 import Yiintegral from "./containers/personalCenter/integral/Yiintegral"; //易积分
 
@@ -93,10 +97,10 @@ const scenes = {
     screen: DynamicData,//动态监测数据
   },
   AllGoods: {
-    screen: AllGoods,
+    screen: AllGoods, //全部商品
   },
   CategoryDetails: {
-    screen:CategoryDetails,
+    screen:CategoryDetails, //商品详情
   },
   RegisterCode: {
     screen: RegisterCode,//注册邀请码
@@ -105,6 +109,14 @@ const scenes = {
   PersonalInfo: {
     screen: PersonalInfo,//个人信息
   },
+
+  MyInfoEdit: {
+    screen: MyInfoEdit, //我的信息-编辑
+  },
+
+  ExamineInfoEdit: {
+    screen: ExamineInfoEdit, //审核信息-编辑
+  },  
 
   Cart: {
     screen: Cart, //购物车
@@ -123,11 +135,15 @@ const scenes = {
   },
 
   Recharge: {
-    screen: Recharge,
+    screen: Recharge, //充值
   },
 
   Withdrawals: {
-    screen: Withdrawals,
+    screen: Withdrawals, //提现
+  },
+
+  CustomerService: {
+    screen: CustomerService, //客服
   },
 
 };
