@@ -17,14 +17,14 @@ import ProList from './showIndex/ProList';//产品列表
 import CustomTitle from '../components/public/CustomTitle'; 
 
 const dataIcon = [
-	{url:require('../assets/images/u276.png'), text:'健康教育'},
-	{url:require('../assets/images/u276.png'), text:'服务中心'},
-	{url:require('../assets/images/u276.png'), text:'健康管理师'},
-	{url:require('../assets/images/u276.png'), text:'活动'},
-	{url:require('../assets/images/u276.png'), text:'一盏明灯'},
-	{url:require('../assets/images/u276.png'), text:'商盟'},
-	{url:require('../assets/images/u276.png'), text:'健康档案'},
-	{url:require('../assets/images/u276.png'), text:'客户服务'},
+	{url:require('../assets/images/u276.png'), text:'健康教育',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'服务中心',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'健康管理师',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'活动',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'一盏明灯',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'商盟',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'健康档案',nav:'CustomerService'},
+	{url:require('../assets/images/u276.png'), text:'客户服务',nav:'CustomerService'},
 ];
 
 

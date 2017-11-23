@@ -7,10 +7,10 @@ import {
 	StyleSheet,
 	Image,
 } from "react-native";
-import AndApplyOrder from './AndApplyOrder';
+import AndApplyOrder from './AllInOrder/AndApplyOrder';
 import CustomTitle from '../../../components/public/CustomTitle';
-import ReceiveRalate from './ReceiveRalate';
-import ProOrder from './ProOrder';
+import ReceiveRalate from '../../shoppingmall/orderAndAddr/ReceiveRalate';
+import ProOrder from './AllInOrder/ProOrder';
 
 export default class Returns extends React.Component{
 

@@ -12,10 +12,10 @@ export default class MyOrder extends React.Component{
 		super(props);
 		this.state = {
 			ImageBtn: [
-				{url:require('../../../assets/images/u266.png'), text:'待付款', nav: "PendPay"},
-				{url:require('../../../assets/images/u266.png'), text:'待收货', nav: "ToReceive"},
-				{url:require('../../../assets/images/u266.png'), text:'待评价'},
-				{url:require('../../../assets/images/u266.png'), text:'退换货', nav: "Returns"},
+				{url:require('../../../assets/images/u276.png'), text:'待付款', nav: "PendPay"},
+				{url:require('../../../assets/images/u276.png'), text:'待收货', nav: "ToReceive"},
+				{url:require('../../../assets/images/u276.png'), text:'待评价'},
+				{url:require('../../../assets/images/u276.png'), text:'退换货', nav: "Returns"},
 			]
 		}
 	}

@@ -24,14 +24,14 @@ export default class HealthRecord extends Component {
 					title="我的基础健康档案"
 					rightIcon={<FontAwesome name="angle-right" size={18}/>}
 					style={[styles.listItem, {borderTopWidth: 1,borderTopColor: gColor.color2,}]}
-					textStyle={{fontSize: gFontSize.middleText}}
+					textStyle={{fontSize: gFontSize.bigText}}
 				/>
 				<CustomTitle 
 					title="我的动态监测"
 					rightIcon={<FontAwesome name="angle-right" size={18}/>}
 					style={styles.listItem}
 					redirectPress={()=> this.props.navigation.navigate('DynamicData')}
-					textStyle={{fontSize: gFontSize.middleText}}
+					textStyle={{fontSize: gFontSize.bigText}}
 					
 				/>
 			</View>
@@ -42,7 +42,7 @@ export default class HealthRecord extends Component {
 const styles = StyleSheet.create({
 	listItem: {
 		borderBottomWidth: 1, 
-		borderBottomColor: gColor.color2,
+		borderBottomColor: gColor.borderColors,
 		paddingVertical:10,
 		backgroundColor: gColor.whiteColor,
 	} 

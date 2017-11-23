@@ -32,7 +32,7 @@ export default class ApplyForReturn extends React.Component{
 					</View>
 					<View style={styles.rowSty}>
 						<Text style={{lineHeight:40}}>商品图片：</Text>
-						<Image source={require('../../../assets/images/L-alabo.png')}
+						<Image source={require('../../../../assets/images/L-alabo.png')}
 							style={{width:70,height:60}}
 						/>
 					</View>
@@ -41,20 +41,20 @@ export default class ApplyForReturn extends React.Component{
 						<Text>1</Text>
 					</View>
 					<View style={styles.rowSty}>
-						<Text style={{paddingVertical:8}}>类型：</Text>
-						<ModalDropdown options={['换货', '退货']} defaultValue="选择退换货" 
-							style={{borderWidth:1,borderColor:gColor.borderColors,width:gScreen.width/1.2,marginLeft:'8%'}}
-							textStyle={{fontSize:gFontSize.centerText,paddingVertical:8,marginLeft:5}}
-							dropdownStyle={{borderWidh:1,width:gScreen.width/1.2}}
-							dropdownTextHighlightStyle={{fontSize:gFontSize.centerText}}/>
+						<Text>类型：</Text>
+						<ModalDropdown options={['换货', '退货']} defaultValue="选择退/换货" 
+							style={styles.btnSty}
+              				textStyle={[styles.textStyle,styles.marginLeft]}
+              				dropdownStyle={[styles.dropdownStyle,styles.height1,styles.marginLeft]}
+             				dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
 					</View>
 					<View style={styles.rowSty}>
-						<Text style={{paddingVertical:8}}>提交数量：</Text>
-						<ModalDropdown options={['1', '2']} defaultValue="1" 
-							style={{borderWidth:1,borderColor:gColor.borderColors,width:gScreen.width/1.2}}
-							textStyle={{paddingVertical:8,fontSize:gFontSize.centerText,marginLeft:5}}
-							dropdownStyle={{borderWidh:1,width:gScreen.width/1.2}}
-							dropdownTextHighlightStyle={{fontSize:gFontSize.centerText}}/>
+						<Text>提交数量：</Text>
+						<ModalDropdown options={['1', '2']} defaultValue="选择数量" 
+							style={styles.btnSty}
+				            textStyle={styles.textStyle}
+				            dropdownStyle={[styles.dropdownStyle,styles.height1]}
+				            dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
 					</View>
 					<View style={styles.rowSty}>
 						<Text>问题描述：</Text>
@@ -81,6 +81,29 @@ const styles = StyleSheet.create({
 		padding:15,
 		borderBottomWidth:1,
 		borderColor:gColor.borderColors,
+	},
+  	useSty: {
+    	fontSize:gFontSize.centerText,
+	},
+	btnSty: {
+		
+	    width:gScreen.width/1.2,
+	},
+	textStyle: {
+	    fontSize:gFontSize.centerText,
+	},
+	marginLeft: {
+		marginLeft:25,
+	},
+	dropdownStyle: {
+	    marginTop:-10,
+	    width:gScreen.width/1.2, 
+	},
+	dropdownTextHighlightStyle: {
+	    fontSize:gFontSize.centerText,
+	},
+	height1: {
+	    height: 70,
 	},
 	add: {
 		width:gScreen.width,
