@@ -22,6 +22,8 @@ import HealthRecord from "./containers/personalCenter/myHealthRecord/HealthRecor
 import DynamicData from "./containers/personalCenter/myHealthRecord/DynamicData";//动态监测数据
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
 import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
+import MyInfoEdit from "./containers/personalCenter/Edit/MyInfoEdit"; //我的信息-编辑
+import ExamineInfoEdit from "./containers/personalCenter/Edit/ExamineInfoEdit"; //审核信息-编辑
 
 import Yiintegral from "./containers/personalCenter/integral/Yiintegral"; //易积分
 
@@ -89,6 +91,14 @@ const scenes = {
     screen: PersonalInfo,//个人信息
   },
 
+  MyInfoEdit: {
+    screen: MyInfoEdit, //我的信息-编辑
+  },
+
+  ExamineInfoEdit: {
+    screen: ExamineInfoEdit, //审核信息-编辑
+  },  
+
   Cart: {
     screen: Cart, //购物车
   },
@@ -114,7 +124,7 @@ const scenes = {
   },
 
   CustomerService: {
-    screen: CustomerService,
+    screen: CustomerService, //客服
   },
 
 };

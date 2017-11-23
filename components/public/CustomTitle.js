@@ -4,7 +4,8 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	TouchableOpacity
+	TouchableOpacity,
+	TouchableWithoutFeedback,
 } from "react-native";
 
 require("../GlobalContants");
@@ -32,12 +33,14 @@ const CustomTitle = (({
 	touchableStyle,
 	redirectPress,
 }) => (
-	<TouchableOpacity style={[styles.container, style]} onPress={redirectPress}>
-		<Text style={textStyle}>{title}</Text>
-		<TouchableOpacity onPress={onPress} style={touchableStyle}>
-			<Text style={[styles.rightAlign, rightTextStyle]}>{rightText} {rightIcon}</Text>
-		</TouchableOpacity>	
-	</TouchableOpacity>
+	<TouchableWithoutFeedback onPress={redirectPress}>
+		<View style={[styles.container, style]}>
+			<Text style={textStyle}>{title}</Text>
+			<TouchableOpacity onPress={onPress} style={touchableStyle}>
+				<Text style={[styles.rightAlign, rightTextStyle]}>{rightText} {rightIcon}</Text>
+			</TouchableOpacity>	
+		</View>
+	</TouchableWithoutFeedback>
 ))
 
 const styles = StyleSheet.create({

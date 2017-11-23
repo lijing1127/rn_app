@@ -1,72 +1,76 @@
 import React, {Component} from "react";
 import {
+	ScrollView,
 	View,
 	Text,
-	Image,
 	TouchableOpacity,
 	StyleSheet,
+	Image,
 } from "react-native";
 import ModalDropdown from 'react-native-modal-dropdown';
-import { List, InputItem, Modal, Button, WhiteSpace, WingBlank, Radio, Flex, } from 'antd-mobile';
-
+import { List, InputItem,} from 'antd-mobile';
+import CustomTitle from '../../../components/public/CustomTitle';
 
 const Item = List.Item;
 
-export default class Withdrawals extends React.Component{
 
-	static navigationOptions = {
-		title:'提现'
-	}
-
-	constructor(props){
+export default class ExamineInfoEdit extends Component {
+	constructor(props) {
 		super(props);
 	}
-
-	render(){
+	render() {
 		return(
-			<View>
-
-				<List className="my-list">
-
+			<ScrollView style={styles.outStyle}>
+				<View style={{alignItems:'center',}}>
+					<Text style={styles.titleStyle}>编辑审核信息</Text>
+				</View>
+				<List className="my-list">										
 					<View style={[styles.listStyle,styles.listBorder]}>
-						<Text style={styles.listText}>支付方式</Text>
+						<Text style={styles.listText}>角色选择 </Text>
 						<TouchableOpacity style={styles.selectStyle}>
 							<ModalDropdown 
-								options={['支付宝', '银联卡']} 
-								defaultValue="请选择您的提现方式"
+								options={['会员', '家庭健康管理师','家庭医生']} 
+								defaultValue="请选择您的身份"
 								style={{marginLeft:15}}
 								textStyle={{fontSize:gFontSize.bigText}}
 								dropdownStyle={{width:'100%',}}
 								dropdownTextHighlightStyle={{color:gColor.importColor}}
 							/>
 						</TouchableOpacity>				
-					</View>									
-												
-					<InputItem
-						clear labelNumber={4}
-						placeholder="请输入正确的账号"
-					>
-						账　　号
-					</InputItem>
-					<View>
-						<Text style={styles.listStyle}>提现金额</Text>
-					<InputItem
-						clear labelNumber={2}
-					>
-						￥
-					</InputItem>						
 					</View>
+				<CustomTitle 
+					key={'1'}
+					title={'工作信息'}
+					style={styles.CustomTitle}
+				/>
+				<CustomTitle 
+					key={'2'}
+					title={'常住地信息'}
+					style={styles.CustomTitle}
+				/>								
 				</List>
 				<TouchableOpacity style={styles.submitBtn}>
-					<Text style={{color:gColor.whiteColor}}>确认提现</Text>
+					<Text style={{color:gColor.whiteColor}}>确认充值</Text>
 				</TouchableOpacity>
-			</View>
-		)
+											
+			</ScrollView>
+		);
 	}
 }
 
 
 const styles = StyleSheet.create ({
+
+	titleStyle: {
+		fontSize:gFontSize.titleText,
+		color:gColor.importColor,
+		paddingVertical:25,
+	},
+
+	outStyle: {
+		backgroundColor: gColor.borderColors,
+	},
+
 	listStyle: {
 		marginLeft:'5%',
 		marginTop:10,
@@ -98,5 +102,12 @@ const styles = StyleSheet.create ({
 		borderRadius:5,
 		alignItems:'center',
 		justifyContent:'center',
+	},
+
+	CustomTitle: {
+		backgroundColor: gColor.borderColors,
+		paddingVertical: 10,
+		paddingLeft:20,
 	}
+
 })

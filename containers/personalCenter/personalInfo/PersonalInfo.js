@@ -78,6 +78,7 @@ export default class Convertible extends Component {
 						rightTextStyle={{color: gColor.whiteColor}}
 						textStyle={{fontSize: gFontSize.bigText}}
 						style={{backgroundColor: gColor.whiteColor, }}
+						onPress={() => this.props.navigation.navigate('MyInfoEdit')}
 					/>
 					<View style={styles.infoBlock}>
 						{this._renderBaseInfo()}
@@ -99,6 +100,7 @@ export default class Convertible extends Component {
 						rightTextStyle={{color: gColor.whiteColor}}
 						textStyle={{fontSize: gFontSize.bigText}}
 						style={{backgroundColor: gColor.whiteColor, }}
+						onPress={() => this.props.navigation.navigate('ExamineInfoEdit')}
 					/>
 					<View style={styles.infoBlock}>
 						{this._renderSHInfo()}
