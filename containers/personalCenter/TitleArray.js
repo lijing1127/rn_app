@@ -13,7 +13,7 @@ var TextBtn = [
 	{title:'我的个人资料', nav: 'PersonalInfo'},
 	{title:'认证'},
 	{title:'我的家庭健康管理师'},
-	{title:'健康管理方案'},
+	{title:'健康管理方案', nav: 'Prescribe'},
 	{title:'设置'},
 ];
 
@@ -23,22 +23,15 @@ export default class TitleArray extends Component{
 		super(props);
 	}
 
-	renderText(item){
+	_renderText(item){
 		return(
 			<CustomTitle 
 				key={item.title}
 				title={item.title}
 				rightIcon={<FontAwesome name="angle-double-right" size={18} />}
 				textStyle={{fontSize:gFontSize.bigText}}
-
 				style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
 					backgroundColor:gColor.whiteColor}}
-
-				style={{paddingVertical:10,borderBottomWidth:1,
-					borderBottomColor:gColor.borderColors,
-					backgroundColor:gColor.whiteColor,
-				}}
-
 				redirectPress={() => this.props.navigation.navigate(item.nav)}
 			/>
 		)
@@ -48,7 +41,7 @@ export default class TitleArray extends Component{
 		return(
 			<View>
 				{
-					TextBtn.map((item)=>this.renderText(item))
+					TextBtn.map((item)=>this._renderText(item))
 				}	
 			</View>
 		)
