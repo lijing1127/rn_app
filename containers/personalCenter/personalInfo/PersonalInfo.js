@@ -82,8 +82,8 @@ export default class Convertible extends Component {
 					<View style={styles.infoBlock}>
 						{this._renderBaseInfo()}
 					</View>
-					<View style={[styles.infoBlock, {paddingHorizontal: 10, marginBottom: 5}]}>
-						<Text style={{fontSize: gFontSize.bigText}}>上传身份证</Text>
+					<View style={[styles.infoBlock, {paddingHorizontal: 10, marginBottom: 5,paddingVertical:20}]}>
+						<Text style={{fontSize: gFontSize.bigText,marginBottom: 5}}>上传身份证</Text>
 						<ImagePicker
 							files={files}
 							onChange={this.onChange}

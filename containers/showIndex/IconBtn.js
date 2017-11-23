@@ -20,6 +20,7 @@ export default class IconBtn extends React.Component{
 					imageStyle={{width: 32, height: 32,marginVertical: 10}}
 					touchableStyle={{width: gScreen.width/4, 
 	 					alignItems: "center",paddingVertical: 10}} 
+ 					navigation={this.props.navigation}
 				/>
 			</View>
 		)
