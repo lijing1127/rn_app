@@ -37,6 +37,9 @@ import CashBalance from "./containers/personalCenter/CashBalance/CashBalance"; /
 import Recharge from "./containers/personalCenter/CashBalance/recharge"; //充值
 import Withdrawals from "./containers/personalCenter/CashBalance/Withdrawals"; //提现
 
+import Prescribe from "./containers/personalCenter/prescribe/Prescribe";//健康管理方案 
+import HealthPlan from "./containers/personalCenter/prescribe/HealthPlan";//我的健康方案
+
 require('./components/GlobalContants');
 
 const getOptions = () => ({
@@ -128,6 +131,12 @@ const scenes = {
 
   Withdrawals: {
     screen: Withdrawals,
+  },
+  Prescribe: {
+    screen: Prescribe,//健康管理方案
+  },
+  HealthPlan: {
+    screen: HealthPlan,//我的健康方案
   },
 
 };
