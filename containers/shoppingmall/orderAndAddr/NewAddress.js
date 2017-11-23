@@ -20,9 +20,7 @@ class UselessTextInput extends Component {
     return (
       <TextInput
 		underlineColorAndroid="transparent"
-
-        style={styles.textInp}
-       
+        style={styles.textInp}     
         value={this.state.text}
       />
     );
@@ -41,20 +39,20 @@ export default class OrderAndAddr extends React.Component{
 				<ScrollView>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>收货人姓名：</Text>
-						<View style={{width:'75%'}}>
+						<View style={{width:'75%',marginLeft:10}}>
 							<UselessTextInput/>
 						</View>
 					</View>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>手机号码：</Text>
-						<View style={{width:'75%',}}>
-							<UselessTextInput style={{}}/>
+						<View style={styles.width}>
+							<UselessTextInput />
 						</View>
 					</View>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>省份：</Text>
-						<View style={{width:'75%'}}>
-							<ModalDropdown options={['北京', ' 上海','广东','河南','山东']} defaultValue="北京" 
+						<View style={styles.width}>
+							<ModalDropdown options={['北京', '上海','广东','河南','山东']} defaultValue="北京" 
 								style={{borderWidth:1,borderColor:gColor.borderColors,height:40}}
 								textStyle={{fontSize:gFontSize.centerText,paddingVertical:8,marginLeft:5}}
 								dropdownStyle={{borderWidh:1,borderColor:gColor.borderColors,width:gScreen.width/1.2}}
@@ -64,7 +62,7 @@ export default class OrderAndAddr extends React.Component{
 
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>城市：</Text>
-						<View style={{width:'75%'}}>
+						<View style={styles.width}>
 							<ModalDropdown options={['北京', '上海','深圳','广州','济南']} defaultValue="北京" 
 								style={{borderWidth:1,borderColor:gColor.borderColors,height:40}}
 								textStyle={{fontSize:gFontSize.centerText,paddingVertical:8,marginLeft:5}}
@@ -75,7 +73,7 @@ export default class OrderAndAddr extends React.Component{
 
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>地区或街道：</Text>
-						<View style={{width:'75%'}}>
+						<View style={styles.width}>
 							<UselessTextInput />
 						</View>
 					</View>
@@ -97,6 +95,7 @@ const styles = StyleSheet.create({
 		borderColor: gColor.borderColors,
 		borderWidth: 1,
 		padding: 0,
+		paddingLeft:5,
 	},
 	listSty: {
 		flexDirection:'row',
@@ -119,5 +118,9 @@ const styles = StyleSheet.create({
 		textAlign:'center',
 		paddingVertical:13,
 		color: gColor.whiteColor,
+	},
+	width: {
+		width:gScreen.width/1.5,
+		marginLeft:10
 	}
 })

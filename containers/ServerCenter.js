@@ -34,12 +34,12 @@ export default class ServerCenter extends Component {
 				<ServerIcon dataIcon={serIcon} />
 				<CustomTitle 
 					title="主治医师"
-					style={{borderBottomWidth: 1,paddingVertical:10}}
+					style={{borderBottomWidth: 1,borderBottomColor:gColor.borderColors,paddingVertical:10}}
 				/>
 				<Physician />
 				<CustomTitle 
 					title="医生列表"
-					style={{borderBottomWidth: 1,paddingVertical:10}}
+					style={{borderBottomWidth: 1,borderBottomColor:gColor.borderColors,paddingVertical:10}}
 				/>
 				<AllDocList />
 			</ScrollView>

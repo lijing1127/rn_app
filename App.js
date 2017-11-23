@@ -9,13 +9,20 @@ import CategoryDetails from './containers/shoppingmall/AllGoods/CategoryDetails'
 
 
 import AllOrders from "./containers/personalCenter/myOrder/AllOrders";//全部订单
-import ConfirmOrder from "./containers/personalCenter/myOrder/ConfirmOrder";//确认订单
-import GenerateOrder from "./containers/personalCenter/myOrder/GenerateOrder";//提交订单
-import ApplyForReturn from "./containers/personalCenter/myOrder/ApplyForReturn";//申请退换货
+
+import ConfirmOrder from "./containers/personalCenter/myOrder/AllInOrder/ConfirmOrder";//确认订单
+import GenerateOrder from "./containers/personalCenter/myOrder/AllInOrder/GenerateOrder";//提交订单
+import ApplyForReturn from "./containers/personalCenter/myOrder/AllInOrder/ApplyForReturn";//申请退换货
+import Logistic from "./containers/personalCenter/myOrder/AllInOrder/Logistic";//物流情况
+
 import PendPay from "./containers/personalCenter/myOrder/PendPay";//待付款
 import ToReceive from "./containers/personalCenter/myOrder/ToReceive";//待收货
 import Returns from "./containers/personalCenter/myOrder/Returns";//退换货
-import OrderAndAddr from "./containers/personalCenter/myOrder/OrderAndAddr";//收货地址管理
+
+import OrderAndAddr from "./containers/shoppingmall/orderAndAddr/OrderAndAddr";//订单和收货地址管理
+import ReceiveAddr from "./containers/shoppingmall/orderAndAddr/ReceiveAddr";//收货地址管理
+import NewAddress from "./containers/shoppingmall/orderAndAddr/NewAddress";//新增收货地址
+
 import HealthRecord from "./containers/personalCenter/myHealthRecord/HealthRecord";//我的健康档案
 import DynamicData from "./containers/personalCenter/myHealthRecord/DynamicData";//动态监测数据
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
@@ -66,6 +73,18 @@ const scenes = {
   },
   Returns: {
     screen: Returns,//退换货
+  },
+  OrderAndAddr: {
+    screen: OrderAndAddr,//订单和收货地址管理
+  },
+  ReceiveAddr: {
+    screen: ReceiveAddr,//收货地址管理
+  },
+  NewAddress: {
+    screen: NewAddress,//新增收货地址
+  },
+  Logistic: {
+    screen: Logistic,//物流情况
   },
   HealthRecord: {
     screen: HealthRecord,//健康档案

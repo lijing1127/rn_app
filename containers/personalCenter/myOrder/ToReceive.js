@@ -7,10 +7,10 @@ import {
 	StyleSheet,
 	Image,
 } from "react-native";
-import AndApplyOrder from './AndApplyOrder';
+import AndApplyOrder from './AllInOrder/AndApplyOrder';
 import CustomTitle from '../../../components/public/CustomTitle';
-import ReceiveRalate from './ReceiveRalate';
-import ProOrder from './ProOrder';
+import ReceiveRalate from '../../shoppingmall/orderAndAddr/ReceiveRalate';
+import ProOrder from './AllInOrder/ProOrder';
 
 export default class Returns extends React.Component{
 
@@ -34,7 +34,7 @@ export default class Returns extends React.Component{
 				<ReceiveRalate />
 				<ProOrder />
 				<View style={styles.dubBtn}>
-					<TouchableOpacity style={styles.touch} >
+					<TouchableOpacity style={styles.touch} onPress={()=> this.props.navigation.navigate('Logistic')}>
 						<Text style={styles.text}>查看物流</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.touch} >

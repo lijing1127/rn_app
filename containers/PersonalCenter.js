@@ -15,7 +15,7 @@ export default class ShowIndex extends Component {
 		return (
 			<ScrollView>
 				<HeadLayOut Per={true} navigation={this.props.navigation} />
-				<MyOrder />
+				<MyOrder nav={this.props.navigation}/>
 				<TitleArray navigation={this.props.navigation} />
 			</ScrollView>
 		);
