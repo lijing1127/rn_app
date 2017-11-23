@@ -6,6 +6,7 @@ import {
 	StyleSheet,
 	Dimensions,
 	TouchableOpacity,
+	ActivityIndicator,
 } from "react-native";
 import ImageButton from "../../../components/public/ImageButton";
 
@@ -54,6 +55,8 @@ export default class ShoppingCategory extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			lisRefresh: false,
+			refresh: false,
 			data:[
 				{id: 1, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
 				{id: 2, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
@@ -106,6 +109,17 @@ export default class ShoppingCategory extends Component {
 					horizontal={false}
 					numColumns={2}
 					style={styles.rightCon}
+					refreshing={this.state.refresh}
+					onRefresh={() => {
+						this.setState({refresh: true})
+						setTimeout(() => this.setState({refresh: false}), 1000 )
+					}}
+					ListFooterComponent={ this.state.lisRefresh && <ActivityIndicator /> }
+					onEndReachedThreshold={0.1}
+					onEndReached={() => {
+						this.setState({lisRefresh: true})
+						setTimeout(() => this.setState({lisRefresh: false}), 3000 )
+					}}
 				/>
 			</View>
 		);

@@ -30,6 +30,7 @@ class Home extends React.Component {
 
   componentWillMount() {
     StatusBar.setBarStyle('light-content');
+    StatusBar.setBackgroundColor('red');
   }
 
   componentDidMount() {
@@ -41,9 +42,6 @@ class Home extends React.Component {
   renderContent(pageText) {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
-        <View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
-          <SearchBar placeholder="搜索" showCancelButton />
-        </View>
         {pageText}
       </View>
     );

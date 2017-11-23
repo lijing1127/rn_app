@@ -32,55 +32,34 @@ export default class ShowIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			lisRefresh: false,
-			refresh: false,
-			pageName: ['首页'],
 			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
 		}
 	}
-	_keyExtractor = (item) => item
-	_renderItem = ({item}) => (
-		<View>
-			<CustomCarousel data={this.state.data} />
-				<IconBtn dataIcon={dataIcon} navigation={this.props.navigation} />
+	render() {
+		return (
+			<ScrollView>
+				<CustomCarousel data={this.state.data} />
+				<IconBtn dataIcon={dataIcon} />
 				<CustomTitle 
-					title="健康管理师"
-					rightText="更多"
-					style={{borderBottomWidth: 1,paddingVertical:10}}
+				title="健康管理师"
+				rightText="更多"
+				style={{borderBottomWidth: 1,paddingVertical:10}}
 				/>
 				<ScrollList />
 				<CustomTitle 
-					title="服务中心"
-					rightText="更多"
-					style={{borderBottomWidth: 1,paddingVertical:10}}
+				title="服务中心"
+				rightText="更多"
+				style={{borderBottomWidth: 1,paddingVertical:10}}
 				/>
 				<WorkStaBtn />
 				<CustomTitle 
-					title="热卖产品"
-					rightText="更多"
-					style={{borderBottomWidth: 1,paddingVertical:10}}
+				title="热卖产品"
+				rightText="更多"
+				style={{borderBottomWidth: 1,paddingVertical:10}}
 				/>
 				<Graphic />
 				<ProList />
-		</View>
-	)
-	render() {
-		return (
-			<FlatList 
-				data={this.state.pageName}
-				keyExtractor={this._keyExtractor}
-				renderItem={this._renderItem}
-				refreshing={this.state.refresh}
-				onRefresh={() => {
-					this.setState({refresh: true})
-					setTimeout(() => this.setState({refresh: false}), 1000 )
-				}
-				}
-				ListFooterComponent={ this.state.lisRefresh && <ActivityIndicator /> }
-				onEndReachedThreshold={0.1}
-				onEndReached={() => this.setState({lisRefresh: true})}
-
-			/>
+			</ScrollView>
 		);
 	}
 }
