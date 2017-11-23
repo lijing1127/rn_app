@@ -4,6 +4,8 @@ import {
 	Text,
 	Image,
 	ScrollView,
+	FlatList,
+	ActivityIndicator,
 } from "react-native";
 
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
@@ -30,13 +32,16 @@ export default class ShowIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			lisRefresh: false,
+			refresh: false,
+			pageName: ['首页'],
 			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
 		}
 	}
-	render() {
-		return (
-			<ScrollView>
-				<CustomCarousel data={this.state.data} />
+	_keyExtractor = (item) => item
+	_renderItem = ({item}) => (
+		<View>
+			<CustomCarousel data={this.state.data} />
 				<IconBtn dataIcon={dataIcon} />
 				<CustomTitle 
 					title="健康管理师"
@@ -57,7 +62,25 @@ export default class ShowIndex extends Component {
 				/>
 				<Graphic />
 				<ProList />
-			</ScrollView>
+		</View>
+	)
+	render() {
+		return (
+			<FlatList 
+				data={this.state.pageName}
+				keyExtractor={this._keyExtractor}
+				renderItem={this._renderItem}
+				refreshing={this.state.refresh}
+				onRefresh={() => {
+					this.setState({refresh: true})
+					setTimeout(() => this.setState({refresh: false}), 1000 )
+				}
+				}
+				ListFooterComponent={ this.state.lisRefresh && <ActivityIndicator /> }
+				onEndReachedThreshold={0.1}
+				onEndReached={() => this.setState({lisRefresh: true})}
+
+			/>
 		);
 	}
 }
