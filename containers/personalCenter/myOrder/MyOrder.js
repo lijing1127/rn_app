@@ -12,10 +12,10 @@ export default class MyOrder extends React.Component{
 		super(props);
 		this.state = {
 			ImageBtn: [
-				{url:require('../../../assets/images/u266.png'), text:'待付款'},
-				{url:require('../../../assets/images/u266.png'), text:'待收货'},
+				{url:require('../../../assets/images/u266.png'), text:'待付款', nav: "PendPay"},
+				{url:require('../../../assets/images/u266.png'), text:'待收货', nav: "ToReceive"},
 				{url:require('../../../assets/images/u266.png'), text:'待评价'},
-				{url:require('../../../assets/images/u266.png'), text:'退换货'},
+				{url:require('../../../assets/images/u266.png'), text:'退换货', nav: "Returns"},
 			]
 		}
 	}
@@ -30,7 +30,7 @@ export default class MyOrder extends React.Component{
 					style={{borderBottomWidth: 1,paddingVertical:10,backgroundColor:gColor.whiteColor,
 						borderBottomColor:gColor.borderColors}}
 					textStyle={{fontSize:gFontSize.bigText}}
-					onPress={()=> this.props.navigation.navigate('')}
+					onPress={()=> this.props.nav.navigate('AllOrders')}
 				/>
 				<ImageArray 
 					arrItems={this.state.ImageBtn}

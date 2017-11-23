@@ -11,7 +11,7 @@ import {
 import ReceiveRalate from './ReceiveRalate';
 import ProOrder from './ProOrder';
 import { List, InputItem } from 'antd-mobile';
-import ModalDropdown from 'react-native-modal-dropdown';
+// import ModalDropdown from 'react-native-modal-dropdown';
 
 //antd的List Item组件
 const Item = List.Item;
@@ -85,12 +85,13 @@ export default class ConfirmOrder extends React.Component{
 				<BasicInput />
        
 
-				<View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+				<View style={{flexDirection:'row',justifyContent:'flex-end',paddingVertical:8}}>
 					<Text style={{padding:15}}>共2件，合计￥9999</Text>
 					<TouchableOpacity style={{backgroundColor:gColor.importColor}} 
             onPress={()=> this.props.navigation.navigate('GenerateOrder')}
             >
-						<Text style={{color:gColor.whiteColor,paddingVertical:15,paddingHorizontal:30}}>提交订单</Text>
+						<Text style={{color:gColor.whiteColor,paddingVertical:15,
+              paddingHorizontal:30}}>提交订单</Text>
 					</TouchableOpacity>
 				</View>
 

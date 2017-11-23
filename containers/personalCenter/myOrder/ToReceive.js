@@ -40,7 +40,7 @@ export default class Returns extends React.Component{
 					<TouchableOpacity style={styles.touch} >
 						<Text style={styles.text}>确认收货</Text>
 					</TouchableOpacity>
-					<Text style={styles.total}>共1件，合计：￥999</Text>
+					<Text style={{paddingRight:15,paddingVertical:5}}>共1件，合计：￥999</Text>
 				</View>
 			</ScrollView>
 		)
@@ -58,13 +58,6 @@ const styles = StyleSheet.create({
 		borderBottomColor:gColor.borderColors,
 		// justifyContent:'space-between',
 		paddingLeft:20,
-	},
-	total: {
-		textAlign:'right',
-		paddingRight:15,
-		borderBottomWidth: 1,
-		borderBottomColor:gColor.borderColors,
-		paddingVertical:10,
 	},
 	touch: {
 		borderColor:gColor.importColor,

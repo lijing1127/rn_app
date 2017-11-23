@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 export default class ProOrder extends React.Component{
 	ProList = [
 		{name:'龙脑喷雾',source:require("../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
-		{name:'龙脑喷雾',source:require("../../../images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
+		{name:'龙脑喷雾',source:require("../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
 	]
 
 	_renderProList=(ProList,key) => {

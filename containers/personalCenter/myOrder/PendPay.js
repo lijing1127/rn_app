@@ -33,10 +33,14 @@ export default class Returns extends React.Component{
 				/>
 				<ReceiveRalate />
 				<ProOrder />
-				<View style={{flexDirection:'row',justifyContent:'flex-end',paddingRight:20,
-					paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors}}>
-					
-					<Text style={styles.total}>共1件，合计：￥999</Text>
+				<Text style={styles.total}>共2件，合计：￥9999</Text>
+				<View style={styles.dubBtn}>
+					<TouchableOpacity style={styles.touch} onPress={() => this.props.navigation.navigate('ConfirmOrder')}>
+						<Text style={styles.text}>线上支付</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={styles.touch}>
+						<Text style={styles.text}>取消订单</Text>
+					</TouchableOpacity>
 				</View>
 			</ScrollView>
 		)
@@ -45,6 +49,13 @@ export default class Returns extends React.Component{
 }
 
 const styles = StyleSheet.create({
+	dubBtn: {
+		flexDirection:'row',
+		justifyContent:'flex-end',
+		paddingVertical:10,
+		borderBottomWidth: 1,
+		borderBottomColor:gColor.borderColors,
+	},
 	total: {
 		textAlign:'right',
 		paddingRight:15,

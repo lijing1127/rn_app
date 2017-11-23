@@ -75,12 +75,12 @@ export default class AllOrders extends React.Component{
 				/>
 				<ReceiveRalate />
 				<AndApplyOrder navi={this.props.navigation}/>
-				<View style={{flexDirection:'row',justifyContent:'space-between',paddingLeft:20,
-					paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors}}>
+				<View style={{flexDirection:'row',justifyContent:'space-between',paddingLeft:20,paddingVertical:10,
+					borderBottomWidth:1,borderBottomColor:gColor.borderColors}}>
 					<TouchableOpacity style={styles.touch} >
 						<Text style={styles.text}>查看物流</Text>
 					</TouchableOpacity>
-					<Text style={styles.total}>共1件，合计：￥999</Text>
+					<Text style={{paddingRight:15,paddingVertical:5}}>共1件，合计：￥999</Text>
 				</View>
 
 				<CustomTitle 
