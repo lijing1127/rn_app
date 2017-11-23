@@ -9,10 +9,10 @@ import {
 } from "react-native";
 
 import CustomTitle from '../../../components/public/CustomTitle';
-import ReceiveRalate from './ReceiveRalate';
+import ReceiveRalate from '../../shoppingmall/orderAndAddr/ReceiveRalate';
 import MallActivityList from '../../../components/public/mallActivityList';
-import ProOrder from './ProOrder';
-import AndApplyOrder from './AndApplyOrder';
+import ProOrder from './AllInOrder/ProOrder';
+import AndApplyOrder from './AllInOrder/AndApplyOrder';
 
 
 export default class AllOrders extends React.Component{
@@ -77,7 +77,7 @@ export default class AllOrders extends React.Component{
 				<AndApplyOrder navi={this.props.navigation}/>
 				<View style={{flexDirection:'row',justifyContent:'space-between',paddingLeft:20,paddingVertical:10,
 					borderBottomWidth:1,borderBottomColor:gColor.borderColors}}>
-					<TouchableOpacity style={styles.touch} >
+					<TouchableOpacity style={styles.touch} onPress={()=> this.props.navigation.navigate('Logistic')}>
 						<Text style={styles.text}>查看物流</Text>
 					</TouchableOpacity>
 					<Text style={{paddingRight:15,paddingVertical:5}}>共1件，合计：￥999</Text>

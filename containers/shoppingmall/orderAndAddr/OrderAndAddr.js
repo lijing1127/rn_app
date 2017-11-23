@@ -5,8 +5,7 @@ import {
 } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import CustomTitle from '../../../components/public/CustomTitle';
-import MyOrder from './MyOrder';
-import ProOrder from './ProOrder';
+import MyOrder from '../../personalCenter/myOrder/MyOrder';
 
 export default class OrderAndAddr extends React.Component{
 	static navigationOptions = {

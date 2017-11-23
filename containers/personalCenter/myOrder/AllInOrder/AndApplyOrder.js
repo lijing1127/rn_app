@@ -4,7 +4,7 @@ import {
 	StyleSheet,
 } from "react-native";
 
-import MallActivityList from '../../../components/public/mallActivityList';
+import MallActivityList from '../../../../components/public/mallActivityList';
 
 
 export default class ProOrder extends React.Component{
@@ -14,7 +14,7 @@ export default class ProOrder extends React.Component{
 	}
 
 	OneList = [
-		{name:'龙脑喷雾',source:require("../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',apply:'申请',specify:'￥960',num:'*1'},
+		{name:'龙脑喷雾',source:require("../../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',apply:'申请',specify:'￥960',num:'*1'},
 	]
 
 

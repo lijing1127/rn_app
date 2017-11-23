@@ -7,9 +7,9 @@ import {
 	StyleSheet,
 	Image,
 } from "react-native";
-import AndApplyOrder from './AndApplyOrder';
+import AndApplyOrder from './AllInOrder/AndApplyOrder';
 import CustomTitle from '../../../components/public/CustomTitle';
-import ReceiveRalate from './ReceiveRalate';
+import ReceiveRalate from '../../shoppingmall/orderAndAddr/ReceiveRalate';
 
 export default class Returns extends React.Component{
 
@@ -34,7 +34,7 @@ export default class Returns extends React.Component{
 				<AndApplyOrder navi={this.props.navigation}/>
 				<View style={{flexDirection:'row',justifyContent:'space-between',paddingLeft:20,
 					paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors}}>
-					<TouchableOpacity style={styles.touch} >
+					<TouchableOpacity style={styles.touch} onPress={()=> this.props.navigation.navigate('Logistic')}>
 						<Text style={styles.text}>查看物流</Text>
 					</TouchableOpacity>
 					<Text style={{paddingRight:15,paddingVertical:5}}>共1件，合计：￥999</Text>

@@ -6,7 +6,7 @@ import {
 	TouchableOpacity,
 	StyleSheet
 } from "react-native";
-import CustomTitle from '../../../components/public/CustomTitle';
+import CustomTitle from '../../../../components/public/CustomTitle';
 
 export default class GenerateOrder extends React.Component{
 	static navigationOptions = {
@@ -19,22 +19,18 @@ export default class GenerateOrder extends React.Component{
 				<ScrollView  style={{backgroundColor:gColor.whiteColor}}>
 
 					<View style={{flexDirection:'row',justifyContent:'center',
-						borderBottomWidth:1,borderColor:gColor.borderColors,paddingVertical:15
-					}}>
+						borderBottomWidth:1,borderColor:gColor.borderColors,paddingVertical:15}}>
 						<Text style={{lineHeight:40}}>订单总额：￥</Text>
 						<Text style={{lineHeight:43,fontSize:gFontSize.titleText}}>9999</Text>
 					</View>
 
-					<View>
-						<CustomTitle 
-							title="还需支付"
-							rightText="￥9999"
-							rightTextStyle={{color:gColor.importColor}}
-							style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors}}	
-						/>
-						<Text style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
-							marginLeft:'2%'}}>提示：  提交订单后，三天未制度，系统将自动取消该订单</Text>
+					
+					<View style={{flexDirection:'row',justifyContent:'space-between',paddingHorizontal:10}}>
+						<Text>还需支付:</Text>
+						<Text>¥ 1920.00</Text>
 					</View>
+						<Text style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
+							marginLeft:'2%'}}>提示：提交订单后，三天未制度，系统将自动取消该订单</Text>
 
 				</ScrollView>
 
