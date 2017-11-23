@@ -2,7 +2,10 @@ import React from "react";
 import { StackNavigator } from 'react-navigation';
 import { TabBar, SearchBar, List } from 'antd-mobile';
 import Home from './src/Home';
-require('./components/GlobalContants');
+
+
+import AllGoods from './containers/shoppingmall/AllGoods/AllGoods'; //全部商品
+import CategoryDetails from './containers/shoppingmall/AllGoods/CategoryDetails';//商品详情
 
 
 import AllOrders from "./containers/personalCenter/myOrder/AllOrders";//全部订单
@@ -17,6 +20,17 @@ import HealthRecord from "./containers/personalCenter/myHealthRecord/HealthRecor
 import DynamicData from "./containers/personalCenter/myHealthRecord/DynamicData";//动态监测数据
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
 import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
+
+import Yiintegral from "./containers/personalCenter/integral/Yiintegral"; //易积分
+
+import Cart from "./containers/shoppingmall/Cart/Cart"; //购物车
+import Category from "./containers/shoppingmall/categories/Category";//分类
+
+import CashBalance from "./containers/personalCenter/CashBalance/CashBalance"; //现金余额
+import Recharge from "./containers/personalCenter/CashBalance/recharge"; //充值
+import Withdrawals from "./containers/personalCenter/CashBalance/Withdrawals"; //提现
+
+require('./components/GlobalContants');
 
 const getOptions = () => ({
   header: null,
@@ -59,12 +73,44 @@ const scenes = {
   DynamicData: {
     screen: DynamicData,//动态监测数据
   },
+  AllGoods: {
+    screen: AllGoods,
+  },
+  CategoryDetails: {
+    screen:CategoryDetails,
+  },
   RegisterCode: {
     screen: RegisterCode,//注册邀请码
   },
+
   PersonalInfo: {
     screen: PersonalInfo,//个人信息
   },
+
+  Cart: {
+    screen: Cart, //购物车
+  },
+
+  Category: {
+    screen: Category, //商品分类
+  },
+
+  Yiintegral: {
+    screen: Yiintegral, //易积分
+  },
+
+  CashBalance: {
+    screen: CashBalance, //现金余额
+  },
+
+  Recharge: {
+    screen: Recharge,
+  },
+
+  Withdrawals: {
+    screen: Withdrawals,
+  },
+
 };
 
 const App = StackNavigator(scenes);

@@ -4,13 +4,16 @@
     "development": {
       "plugins": [
         "transform-react-jsx-source",
-        ["import", { "libraryName": "antd-mobile" }]
+        ["import", { "libraryName": "antd-mobile" }],
+        "transform-decorators-legacy",
       ]
     },
     "production": {
       "plugins": [
-        ["import", { "libraryName": "antd-mobile" }]
+        ["import", { "libraryName": "antd-mobile" }],
+        "transform-decorators-legacy",
       ]
     }
-  }
+  },
+
 }

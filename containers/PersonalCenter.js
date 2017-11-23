@@ -14,11 +14,9 @@ export default class ShowIndex extends Component {
 	render() {
 		return (
 			<ScrollView>
-				<HeadLayOut Per={true} />
-
-				<MyOrder nav={this.props.navigation} />
-				<TitleArray  navigation={this.props.navigation} />
-
+				<HeadLayOut Per={true} navigation={this.props.navigation} />
+				<MyOrder />
+				<TitleArray navigation={this.props.navigation} />
 			</ScrollView>
 		);
 	}

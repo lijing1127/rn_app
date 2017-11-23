@@ -13,7 +13,7 @@ const propTypes = {
 	source: Image.propTypes.source,
 	textStyle: Text.propTypes.style,
 	imageStyle: Image.propTypes.style,
-	touchableStyle: PropTypes.object,
+	touchableStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 	description: PropTypes.string,
 	descriptionStyle: PropTypes.object,
 }
