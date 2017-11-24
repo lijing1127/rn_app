@@ -39,7 +39,7 @@ export default class ShowIndex extends Component {
 		return (
 			<ScrollView>
 				<CustomCarousel data={this.state.data} />
-				<IconBtn dataIcon={dataIcon} />
+				<IconBtn dataIcon={dataIcon} navigation={this.props.navigation} />
 				<CustomTitle 
 				title="健康管理师"
 				rightText="更多"
