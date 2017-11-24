@@ -24,6 +24,7 @@ export default class HealthRecord extends Component {
 					title="我的基础健康档案"
 					rightIcon={<FontAwesome name="angle-right" size={18}/>}
 					style={[styles.listItem, {borderTopWidth: 1,borderTopColor: gColor.color2,}]}
+					redirectPress={()=> this.props.navigation.navigate('BasicRecord')}
 					textStyle={{fontSize: gFontSize.bigText}}
 				/>
 				<CustomTitle 

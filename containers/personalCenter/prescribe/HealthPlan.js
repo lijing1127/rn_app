@@ -9,7 +9,7 @@ import {
 import ProOrder from "../myOrder/AllInOrder/ProOrder";
 
 export default class HealthPlan extends React.Component{
-	static navigationOption = {
+	static navigationOptions = {
 		title:'健康管理方案'
 	}
 	constructor(props){
