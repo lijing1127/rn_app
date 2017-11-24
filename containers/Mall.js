@@ -4,7 +4,10 @@ import {
 	Text,
 	ScrollView,
 	StyleSheet,
+	Image,
 } from "react-native";
+import { SearchBar } from 'antd-mobile';
+
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
 import ShoppingIcon from './shoppingmall/shoppingIcons';
 import CustomTitle from '../components/public/CustomTitle';
@@ -13,6 +16,17 @@ import Activity from './shoppingmall/activity';
 
 
 export default class ShowIndex extends Component {
+	static navigationOptions = {
+		tabBarLabel: "商城",
+		tabBarIcon: ({tintColor}) => (
+			<Image source={require("../assets/images/mall_sel.png")} style={{tintColor: tintColor}} />
+		),
+		header: () => (
+			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+				<SearchBar placeholder="甘净" />
+			</View>
+		),
+	}
 	constructor(props) {
 		super(props);
 		this.state = {
