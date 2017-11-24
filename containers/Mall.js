@@ -19,7 +19,7 @@ export default class ShowIndex extends Component {
 	static navigationOptions = {
 		tabBarLabel: "商城",
 		tabBarIcon: ({tintColor}) => (
-			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}} />
+			<Image source={require("../assets/images/mall_sel.png")} style={{tintColor: tintColor}} />
 		),
 		header: () => (
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>

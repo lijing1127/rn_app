@@ -7,8 +7,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import CustomTitle from "../../../components/public/CustomTitle";
 
 export default class Prescribe extends React.Component{
-	static navigationOption = {
-		title:''
+	static navigationOptions = {
+		title:'健康管理方案'
 	}
 	constructor(props){
 		super(props);

@@ -24,7 +24,7 @@ export default class ServerCenter extends Component {
 	static navigationOptions = {
 		tabBarLabel: "服务中心",
 		tabBarIcon: ({tintColor}) => (
-			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}} />
+			<Image source={require("../assets/images/center.png")} style={{tintColor: tintColor}} />
 		),
 		header: () => (
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>

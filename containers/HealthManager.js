@@ -18,7 +18,7 @@ export default class ShowIndex extends Component {
 	static navigationOptions = {
 		tabBarLabel: "健康管理师",
 		tabBarIcon: ({tintColor}) => (
-			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}} />
+			<Image source={require("../assets/images/administrator.png")} style={{tintColor: tintColor}} />
 		),
 		header: () => (
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>

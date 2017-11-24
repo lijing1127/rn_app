@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, StatusBar } from "react-native";
+import { View, StatusBar, Platform } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import Home from './src/Home';
 
@@ -27,6 +27,7 @@ import NewAddress from "./containers/shoppingmall/orderAndAddr/NewAddress";//新
 
 import HealthRecord from "./containers/personalCenter/myHealthRecord/HealthRecord";//我的健康档案
 import DynamicData from "./containers/personalCenter/myHealthRecord/DynamicData";//动态监测数据
+import BasicRecord from "./containers/personalCenter/myHealthRecord/BasicRecord";//基础健康档案
 import RegisterCode from "./containers/personalCenter/registerCode/RegisterCode"; //注册邀请码
 import PersonalInfo from "./containers/personalCenter/personalInfo/PersonalInfo"; //个人资料
 import MyInfoEdit from "./containers/personalCenter/Edit/MyInfoEdit"; //我的信息-编辑
@@ -73,10 +74,11 @@ const getOptions = () => ({
       // backgroundColor: gColor.importColor,
       elevation: 0,
       shadowOpacity: 0,
-      marginTop: 22,
+      marginTop: (Platform.OS === 'android') ? 22: 0,
       borderBottomWidth: 1,
       borderColor: gColor.borderColors,
     },
+    headerTintColor: gColor.textColor,
   }
 });
 
@@ -122,6 +124,9 @@ const scenes = {
   },
   DynamicData: {
     screen: DynamicData,//动态监测数据
+  },
+  BasicRecord: {
+    screen: BasicRecord,//基础健康档案
   },
   AllGoods: {
     screen: AllGoods, //全部商品

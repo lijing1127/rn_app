@@ -13,7 +13,7 @@ export default class ShowIndex extends Component {
 	static navigationOptions = {
 		tabBarLabel: "我的",
 		tabBarIcon: ({tintColor}) => (
-			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}}  />
+			<Image source={require("../assets/images/mine.png")} style={{tintColor: tintColor}}  />
 		),
 		header: () => (
 			<View style={{height: 22, backgroundColor: gColor.importColor}}></View>

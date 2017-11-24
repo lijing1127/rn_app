@@ -53,10 +53,10 @@ export default class OrderAndAddr extends React.Component{
 						<Text style={styles.txtSty}>省份：</Text>
 						<View style={styles.width}>
 							<ModalDropdown options={['北京', '上海','广东','河南','山东']} defaultValue="北京" 
-								style={{borderWidth:1,borderColor:gColor.borderColors,height:40}}
-								textStyle={{fontSize:gFontSize.centerText,paddingVertical:8,marginLeft:5}}
-								dropdownStyle={{borderWidh:1,borderColor:gColor.borderColors,width:gScreen.width/1.2}}
-								dropdownTextHighlightStyle={{fontSize:gFontSize.centerText}}/>
+								style={styles.btnSty}
+								textStyle={styles.textStyle}
+								dropdownStyle={styles.dropdownStyle}
+								dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
 						</View>
 					</View>
 
@@ -65,9 +65,9 @@ export default class OrderAndAddr extends React.Component{
 						<View style={styles.width}>
 							<ModalDropdown options={['北京', '上海','深圳','广州','济南']} defaultValue="北京" 
 								style={{borderWidth:1,borderColor:gColor.borderColors,height:40}}
-								textStyle={{fontSize:gFontSize.centerText,paddingVertical:8,marginLeft:5}}
-								dropdownStyle={{borderWidh:1,borderColor:gColor.borderColors,width:gScreen.width/1.2}}
-								dropdownTextHighlightStyle={{fontSize:gFontSize.centerText}}/>
+								textStyle={styles.textStyle}
+								dropdownStyle={styles.dropdownStyle}
+								dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
 						</View>
 					</View>
 
@@ -122,5 +122,23 @@ const styles = StyleSheet.create({
 	width: {
 		width:gScreen.width/1.5,
 		marginLeft:10
+	},
+	textStyle: {
+	    fontSize:gFontSize.centerText,
+	    paddingVertical:8,
+	    marginLeft:5
+	},
+	dropdownStyle: {
+	    width:gScreen.width/1.2, 
+	    borderWidth:1,
+		borderColor:gColor.borderColors,
+	},
+	dropdownTextHighlightStyle: {
+	    fontSize:gFontSize.centerText,
+	},
+	btnSty: {
+		borderWidth:1,
+		borderColor:gColor.borderColors,
+		height:40
 	}
 })
