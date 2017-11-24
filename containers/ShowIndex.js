@@ -7,6 +7,7 @@ import {
 	FlatList,
 	ActivityIndicator,
 } from "react-native";
+import { SearchBar } from 'antd-mobile';
 
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
 import IconBtn from "./showIndex/IconBtn"; //八个图标
@@ -29,6 +30,17 @@ const dataIcon = [
 
 
 export default class ShowIndex extends Component {
+	static navigationOptions = {
+		tabBarLabel: "首页",
+		tabBarIcon: ({tintColor}) => (
+			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}}  />
+		),
+		header: () => (
+			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+				<SearchBar placeholder="甘净" />
+			</View>
+		),
+	}
 	constructor(props) {
 		super(props);
 		this.state = {

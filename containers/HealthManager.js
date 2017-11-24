@@ -5,6 +5,7 @@ import {
 	Image,
 	ScrollView,
 } from "react-native";
+import { SearchBar } from 'antd-mobile';
 import { FontAwesome } from '@expo/vector-icons';
 
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
@@ -14,6 +15,17 @@ import CustomTitle from '../components/public/CustomTitle';
 
 
 export default class ShowIndex extends Component {
+	static navigationOptions = {
+		tabBarLabel: "健康管理师",
+		tabBarIcon: ({tintColor}) => (
+			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}} />
+		),
+		header: () => (
+			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+				<SearchBar placeholder="甘净" />
+			</View>
+		),
+	}
 	constructor(props) {
 		super(props);
 		this.state = {

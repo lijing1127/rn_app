@@ -5,7 +5,7 @@ import {
 	Image,
 	ScrollView,
 } from "react-native";
-
+import { SearchBar } from 'antd-mobile';
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
 import ServerIcon from "./showIndex/IconBtn";//图标
 import Physician from "./serverCenter/Physician";//主治医师
@@ -21,6 +21,17 @@ const serIcon = [
 ];
 
 export default class ServerCenter extends Component {
+	static navigationOptions = {
+		tabBarLabel: "服务中心",
+		tabBarIcon: ({tintColor}) => (
+			<Image source={require("../assets/images/alipay.png")} style={{tintColor: tintColor}} />
+		),
+		header: () => (
+			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
+				<SearchBar placeholder="甘净" />
+			</View>
+		),
+	}
 	constructor(props) {
 		super(props);
 		this.state = {

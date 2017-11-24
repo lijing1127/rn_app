@@ -1,7 +1,6 @@
-import React from "react";
-import { View } from "react-native";
+import React, {Component} from "react";
+import { View, StatusBar } from "react-native";
 import { StackNavigator } from 'react-navigation';
-import { TabBar, SearchBar, List } from 'antd-mobile';
 import Home from './src/Home';
 
 
@@ -67,20 +66,23 @@ const getOptions = () => ({
 
         return { opacity, transform: [{ translateX }] }
     }
-})
+  }),
+  gestureResponseDistance:{horizontal:20},
+  navigationOptions: {
+    headerStyle: {
+      // backgroundColor: gColor.importColor,
+      elevation: 0,
+      shadowOpacity: 0,
+      marginTop: 22,
+      borderBottomWidth: 1,
+      borderColor: gColor.borderColors,
+    },
+  }
 });
 
 const scenes = {
   Home: {
     screen: Home,
-    navigationOptions: {
-      header: <View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
-      <SearchBar placeholder="甘净" />
-      </View>,
-      headerStyle: {
-        backgroundColor: gColor.importColor,
-      } ,
-    },
   },
   AllOrders: {
     screen: AllOrders,//全部订单
@@ -181,4 +183,23 @@ const scenes = {
 
 const App = StackNavigator(scenes, getOptions());
 
-export default App;
+// export default App;
+
+class YYj extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillMount() {
+    // StatusBar.setBackgroundColor("#ad0e11");
+    StatusBar.setBarStyle("default");
+  }
+  render() {
+    return (
+      <View style={{flex: 1}}> 
+        <App />
+      </View>
+    )
+  }
+}
+
+export default YYj;
