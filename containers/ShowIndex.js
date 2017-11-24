@@ -17,14 +17,14 @@ import ProList from './showIndex/ProList';//产品列表
 import CustomTitle from '../components/public/CustomTitle'; 
 
 const dataIcon = [
-	{url:require('../assets/images/u276.png'), text:'健康教育',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'服务中心',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'健康管理师',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'活动',nav:'CustomerService'},
+	{url:require('../assets/images/teach.png'), text:'健康教育',nav:'CustomerService'},
+	{url:require('../assets/images/service.png'), text:'服务中心',nav:'CustomerService'},
+	{url:require('../assets/images/administrator.png'), text:'健康管理师',nav:'CustomerService'},
+	{url:require('../assets/images/activity.png'), text:'活动',nav:'CustomerService'},
 	{url:require('../assets/images/u276.png'), text:'一盏明灯',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'商盟',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'健康档案',nav:'CustomerService'},
-	{url:require('../assets/images/u276.png'), text:'客户服务',nav:'CustomerService'},
+	{url:require('../assets/images/lianmeng.png'), text:'商盟',nav:'CustomerService'},
+	{url:require('../assets/images/dangan.png'), text:'健康档案',nav:'CustomerService'},
+	{url:require('../assets/images/help.png'), text:'客户服务',nav:'CustomerService'},
 ];
 
 
