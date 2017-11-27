@@ -6,21 +6,15 @@ import {
 	ScrollView,
 } from "react-native";
 import { SearchBar } from 'antd-mobile';
-import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
-import ServerIcon from "./showIndex/IconBtn";//图标
-import Physician from "./serverCenter/Physician";//主治医师
-import AllDocList from "./serverCenter/allDocList";//医生列表
+import { FontAwesome } from '@expo/vector-icons';
 
+import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
+import ImageArray from "../components/public/ImageArray";
 import CustomTitle from '../components/public/CustomTitle'; 
 
-const serIcon = [
-	{url:require('../assets/images/u266.png'), text:'健康教育'},
-	{url:require('../assets/images/u266.png'), text:'服务中心'},
-	{url:require('../assets/images/u266.png'), text:'健康管理师'},
-	{url:require('../assets/images/u266.png'), text:'活动'},
-];
 
-export default class ServerCenter extends Component {
+
+export default class ShowIndex extends Component {
 	static navigationOptions = {
 		tabBarLabel: "服务中心",
 		tabBarIcon: ({tintColor}) => (
@@ -36,23 +30,39 @@ export default class ServerCenter extends Component {
 		super(props);
 		this.state = {
 			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+			ImageBtn: [
+				{url:require('../assets/images/u266.png'), text:'爱心解答'},
+				{url:require('../assets/images/u266.png'), text:'服务'},
+				{url:require('../assets/images/u266.png'), text:'健康数据'},
+				{url:require('../assets/images/u266.png'), text:'店家'},
+			],
+			ImageList: [
+				{url:require('../assets/images/lightOne.jpg'), text:'健康管理师1', description: '这部分属于详细描述的部分！'},
+				{url:require('../assets/images/lightOne.jpg'), text:'健康管理师2', description: '这部分属于详细描述的部分！'},
+			],
 		}
 	}
 	render() {
 		return (
 			<ScrollView>
 				<CustomCarousel data={this.state.data} />
-				<ServerIcon dataIcon={serIcon} />
-				<CustomTitle 
-					title="主治医师"
-					style={{borderBottomWidth: 1,borderBottomColor:gColor.borderColors,paddingVertical:10}}
+				<ImageArray 
+					arrItems={this.state.ImageBtn}
+					style={{flexDirection: "row",flexWrap: 'wrap', backgroundColor: gColor.whiteColor}}
+					imageStyle={{width: 32, height: 32,marginVertical: 10}} 
+					touchableStyle={{width: gScreen.width/4, alignItems: "center", paddingVertical: 5}}
 				/>
-				<Physician />
 				<CustomTitle 
-					title="医生列表"
-					style={{borderBottomWidth: 1,borderBottomColor:gColor.borderColors,paddingVertical:10}}
+					title="热门话题"
+					rightText="查看全部"
+					rightIcon={<FontAwesome name="angle-double-right" size={18} />}
 				/>
-				<AllDocList />
+				<ImageArray 
+					arrItems={this.state.ImageList}
+					touchableStyle={{backgroundColor: gColor.whiteColor, marginVertical: 5, paddingLeft: 5, paddingBottom: 5,}}
+					imageStyle={{width: gScreen.width - 10, height: gScreen.width/4,}} 
+					textStyle={{fontSize: gFontSize.bigText, marginVertical: 5}}
+				/>
 			</ScrollView>
 		);
 	}
