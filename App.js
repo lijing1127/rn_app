@@ -3,6 +3,7 @@ import { View, StatusBar, Platform } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import Home from './src/Home';
 
+import Login from "./containers/Login";
 
 
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
@@ -85,6 +86,9 @@ const getOptions = () => ({
 const scenes = {
   Home: {
     screen: Home,
+  },
+  Login: {
+    screen: Login,//登录
   },
   AllOrders: {
     screen: AllOrders,//全部订单

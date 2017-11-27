@@ -10,22 +10,6 @@ import {
 
 import ModalDropdown from 'react-native-modal-dropdown';
 
-class UselessTextInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
-  }
-
-  render() {
-    return (
-      <TextInput
-		underlineColorAndroid="transparent"
-        style={styles.textInp}     
-        value={this.state.text}
-      />
-    );
-  }
-}
 export default class OrderAndAddr extends React.Component{
 	static navigationOptions = {
 		title: "新增收货地址",
@@ -40,13 +24,19 @@ export default class OrderAndAddr extends React.Component{
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>收货人姓名：</Text>
 						<View style={{width:'75%',marginLeft:10}}>
-							<UselessTextInput/>
+							<TextInput
+								underlineColorAndroid="transparent"
+						        style={styles.textInp}
+						      />
 						</View>
 					</View>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>手机号码：</Text>
 						<View style={styles.width}>
-							<UselessTextInput />
+							<TextInput
+								underlineColorAndroid="transparent"
+						        style={styles.textInp}
+						      />
 						</View>
 					</View>
 					<View style={styles.listSty}>
@@ -74,7 +64,10 @@ export default class OrderAndAddr extends React.Component{
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>地区或街道：</Text>
 						<View style={styles.width}>
-							<UselessTextInput />
+							<TextInput
+								underlineColorAndroid="transparent"
+						        style={styles.textInp}
+						      />
 						</View>
 					</View>
 			

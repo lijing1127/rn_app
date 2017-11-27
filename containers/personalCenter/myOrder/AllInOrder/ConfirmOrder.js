@@ -16,29 +16,6 @@ import ModalDropdown from 'react-native-modal-dropdown';
 //antd的List Item组件
 const Item = List.Item;
 
-class ListExample extends React.Component {
-  state = {
-    disabled: false,
-  }
-
-  render() {
-    return (
-      <List className="my-list">
-        <Item extra="管理健康--YBJ会员(易积分)" arrow="horizontal" 
-          onClick={() => {
-          	return(
-          		<Item>
-  			         <ModalDropdown options={['option 1', 'option 2']}/>
-  			      </Item>
-          	)
-        }}>参与活动</Item>   
-        <Item extra="微信支付" arrow="horizontal" onClick={() => {}}>支付方式</Item>
-        <Item extra="不使用优惠" arrow="horizontal" onClick={() => {}}>使用优惠</Item>      
-      </List>    
-    );
-  }
-}
-
 class BasicInput extends React.Component {
 
   render() {
