@@ -16,34 +16,36 @@ export default class Login extends React.Component{
 	}
 	constructor(props){
 		super(props);
-		this.state = {text:''}
+		this.state = {
+			account:'',
+			password:'',
+		}
 	}
 	render(){
 		return(
 			<ScrollView style={styles.contain}>
 				<View style={styles.imageCon}>
-					<Image source={require('../assets/images/u266.png')} 
+					<Image source={require('../../../assets/images/u266.png')} 
 						style={styles.img}/>
 				</View>
-				<View style={styles.listSty}>
-					<Text style={styles.txtSty}>账号：</Text>
-					<View style={styles.width}>
-						<TextInput
-							underlineColorAndroid="transparent"
-					        style={styles.textInp}     
-					      />
-					</View>
+				<View style={styles.inputOut}>
+					<Text style={styles.textStyle}> 账　号:　</Text>			
+					<TextInput underlineColorAndroid="transparent"
+						style={{height: 50,flex:1}}
+						value={this.state.account}
+					/>
 				</View>
-				<View style={styles.listSty}>
-					<Text style={styles.txtSty}>密码：</Text>
-					<View style={styles.width}>
-						 <TextInput
-							underlineColorAndroid="transparent"
-					        style={styles.textInp}        
-					      />
-					</View>
+				<View style={styles.inputOut}>
+					<Text style={styles.textStyle}> 密　码:　</Text>			
+					<TextInput underlineColorAndroid="transparent"
+						style={{height: 50,flex:1}}
+						value={this.state.password}
+					/>
 				</View>
-				<View style={{alignItems:'center',marginTop:20}}>
+
+
+
+				<View style={{alignItems:'center',marginTop:'15%'}}>
 
 					<TouchableOpacity style={styles.touch}>
 						<Text style={styles.text}>登录</Text>
@@ -51,7 +53,7 @@ export default class Login extends React.Component{
 				</View>
 				<View style={{alignItems:'flex-end',paddingVertical:10,paddingRight:'10%'}}>
 
-					<TouchableOpacity onPress={()=>this.props.navigation.navigate('')}>
+					<TouchableOpacity onPress={()=>this.props.navigation.navigate('Register')}>
 						<Text style={{color:gColor.whiteColor}}>还没账号？去注册</Text>
 					</TouchableOpacity>
 				</View>
@@ -81,36 +83,24 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 	},
 	img: {
-		width:65,
-		height:65,
-		borderRadius:32.5,
-		borderColor: gColor.borderColors,		
+		width:100,
+		height:100,
+		borderRadius:50,
 	},
-	textInp: {
-		height: 40, 
-		borderColor: gColor.borderColors,
-		borderBottomWidth: 1,
-		padding: 0,
-		// paddingLeft:5,
-	},
-	listSty: {
+	inputOut:{
 		flexDirection:'row',
-		marginTop:10,
-		justifyContent:'space-between',
-		paddingHorizontal:"10%",
+		borderBottomWidth:1,
+		borderBottomColor:gColor.borderColors,
+		height: 50,
+		alignItems:'center',
+		marginHorizontal:20,
 	},
-	txtSty: {
-		marginLeft:10,
-		paddingVertical:20,
-		fontSize:gFontSize.bigText,
-		color:gColor.borderColors
-	},
-	width: {
-		width:gScreen.width/1.5,
-		marginLeft:10
+	textStyle: {
+		fontSize:gFontSize.middleText,
+		color:gColor.whiteColor,
 	},
 	touch: {
-		width:'80%',
+		width:'90%',
 		justifyContent:'center',
 		backgroundColor:gColor.whiteColor,
 		borderRadius:5,
@@ -118,7 +108,7 @@ const styles = StyleSheet.create({
 	text: {
 		textAlign:'center',
 		paddingVertical:10,
-		fontSize:gFontSize.bigText,
+		fontSize:gFontSize.middleText,
 		color:gColor.importColor,
 		
 	}

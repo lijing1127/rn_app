@@ -6,12 +6,11 @@ import {
 } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import CustomTitle from '../../../components/public/CustomTitle'; 
-import HeadLayOut from "../HeadLayOut";
 
 
 export default class HealthRecord extends Component {
 	static navigationOptions = {
-		title:'健康档案'
+		title:'设置'
 	}
 	constructor(props) {
 		super(props);
@@ -19,19 +18,26 @@ export default class HealthRecord extends Component {
 	render() {
 		return (
 			<View>
-				<HeadLayOut />	
 				<CustomTitle 
-					title="我的基础健康档案"
+					title="登录"
 					rightIcon={<FontAwesome name="angle-right" size={18}/>}
 					style={styles.listItem}
-					redirectPress={()=> this.props.navigation.navigate('BasicRecord')}
+					redirectPress={()=> this.props.navigation.navigate('Login')}
 					textStyle={{fontSize: gFontSize.bigText}}
 				/>
 				<CustomTitle 
-					title="我的动态监测"
+					title="注册"
 					rightIcon={<FontAwesome name="angle-right" size={18}/>}
 					style={styles.listItem}
-					redirectPress={()=> this.props.navigation.navigate('DynamicData')}
+					redirectPress={()=> this.props.navigation.navigate('Register')}
+					textStyle={{fontSize: gFontSize.bigText}}
+					
+				/>
+				<CustomTitle 
+					title="退出登录"
+					rightIcon={<FontAwesome name="angle-right" size={18}/>}
+					style={styles.listItem}
+					redirectPress={()=> this.props.navigation.navigate('')}
 					textStyle={{fontSize: gFontSize.bigText}}
 					
 				/>

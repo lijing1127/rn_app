@@ -27,7 +27,7 @@ export default class Prescribe extends React.Component{
 					key={item.title}
 					title={item.title}
 					rightIcon={<FontAwesome name="angle-double-right" size={18} />}
-					style={{backgroundColor: gColor.whiteColor,paddingVertical:10,borderBottomWidth:1,
+					style={{backgroundColor: gColor.whiteColor,paddingVertical:15,borderBottomWidth:1,
 						borderColor:gColor.borderColors }}
 					redirectPress={() => this.props.navigation.navigate(item.nav)}
 				/>

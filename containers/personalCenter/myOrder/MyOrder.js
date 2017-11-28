@@ -27,7 +27,7 @@ export default class MyOrder extends React.Component{
 					title="我的订单"
 					rightText="查看全部订单"
 					rightIcon={<FontAwesome name="angle-double-right" size={18}/>}
-					style={{borderBottomWidth: 1,paddingVertical:10,backgroundColor:gColor.whiteColor,
+					style={{borderBottomWidth: 1,paddingVertical:15,backgroundColor:gColor.whiteColor,
 						borderBottomColor:gColor.borderColors}}
 					textStyle={{fontSize:gFontSize.bigText}}
 					onPress={()=> this.props.nav.navigate('AllOrders')}

@@ -3,8 +3,9 @@ import { View, StatusBar, Platform } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import Home from './src/Home';
 
-import Login from "./containers/Login";
-
+import Setting from "./containers/personalCenter/setting/Setting";//设置
+import Login from "./containers/personalCenter/setting/Login";//登录
+import Register from './containers/personalCenter/setting/Register'; //注册
 
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
 
@@ -87,8 +88,14 @@ const scenes = {
   Home: {
     screen: Home,
   },
+  Setting: {
+    screen: Setting,//设置
+  },
   Login: {
     screen: Login,//登录
+  },
+  Register: {
+    screen: Register,//注册
   },
   AllOrders: {
     screen: AllOrders,//全部订单

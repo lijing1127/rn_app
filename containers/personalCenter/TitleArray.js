@@ -14,7 +14,7 @@ var TextBtn = [
 	{title:'认证'},
 	{title:'我的家庭健康管理师'},
 	{title:'健康管理方案', nav: 'Prescribe'},
-	{title:'设置'},
+	{title:'设置', nav: 'Setting'},
 ];
 
 export default class TitleArray extends Component{
@@ -30,7 +30,7 @@ export default class TitleArray extends Component{
 				title={item.title}
 				rightIcon={<FontAwesome name="angle-double-right" size={18} />}
 				textStyle={{fontSize:gFontSize.bigText}}
-				style={{paddingVertical:10,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
+				style={{paddingVertical:15,borderBottomWidth:1,borderBottomColor:gColor.borderColors,
 					backgroundColor:gColor.whiteColor}}
 				redirectPress={() => this.props.navigation.navigate(item.nav)}
 			/>
