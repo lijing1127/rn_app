@@ -56,24 +56,28 @@ export default class AllCategory extends Component {
 
 	render() {
 		return (
-			<FlatList 
-				data={this.state.allProduct}
-				renderItem={this._renderAllProduct}
-				keyExtractor={this._keyExtractor}
-				horizontal={false}
-				numColumns={2}
-				refreshing={this.state.refresh}
-				onRefresh={() => {
-					this.setState({refresh: true})
-					setTimeout(() => this.setState({refresh: false}), 1000 )
-				}}
-				ListFooterComponent={ this.state.lisRefresh && <ActivityIndicator /> }
-				onEndReachedThreshold={0.1}
-				onEndReached={() => {
-					this.setState({lisRefresh: true})
-					setTimeout(() => this.setState({lisRefresh: false}), 3000 )
-				}}
-			/>
+			<View>
+				<SmallTitle text={'全部商品'} style={{backgroundColor:gColor.whiteColor,}}/>
+				<FlatList 
+					data={this.state.allProduct}
+					style={{backgroundColor:gColor.whiteColor}}
+					renderItem={this._renderAllProduct}
+					keyExtractor={this._keyExtractor}
+					horizontal={false}
+					numColumns={2}
+					refreshing={this.state.refresh}
+					onRefresh={() => {
+						this.setState({refresh: true})
+						setTimeout(() => this.setState({refresh: false}), 1000 )
+					}}
+					ListFooterComponent={ this.state.lisRefresh && <ActivityIndicator /> }
+					onEndReachedThreshold={0.1}
+					onEndReached={() => {
+						this.setState({lisRefresh: true})
+						setTimeout(() => this.setState({lisRefresh: false}), 3000 )
+					}}
+				/>
+			</View>
 		);
 	}
 }

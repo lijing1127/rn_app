@@ -89,13 +89,13 @@ export default class CategoryDetails extends Component {
 					<View style={{flexDirection : 'row',justifyContent: 'space-between',marginLeft:'4%'}}>
 						<ImageButton
 							text={'商城'}
-							source={require('../../../assets/images/L-alabo.png')}
+							source={require('../../../assets/images/mall.png')}
 							imageStyle={styles.imageStyle}
 							touchableStyle={styles.touchableStyle}
 						/>
 						<ImageButton
 							text={'购物车'}
-							source={require('../../../assets/images/L-alabo.png')}
+							source={require('../../../assets/images/ShoppingCart.png')}
 							imageStyle={styles.imageStyle}
 							touchableStyle={styles.touchableStyle}
 						/>
@@ -184,8 +184,8 @@ const styles = StyleSheet.create({
 	},
 
 	imageStyle: {
-		width:40,
-		height:40,
+		width:30,
+		height:30,
 	},
 
 	btnStyle: {
