@@ -3,14 +3,10 @@ import { View, StatusBar, Platform } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import Home from './src/Home';
 
-<<<<<<< HEAD
-import Login from "./containers/Login"; //登录
-import Register from './containers/Register'; //注册
-=======
+
 import Setting from "./containers/personalCenter/setting/Setting";//设置
 import Login from "./containers/personalCenter/setting/Login";//登录
 import Register from './containers/personalCenter/setting/Register'; //注册
->>>>>>> e5fa455557906c93d3b0237836693e40b3b68aed
 
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
 
