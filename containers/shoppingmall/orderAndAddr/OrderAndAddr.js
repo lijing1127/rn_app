@@ -22,7 +22,7 @@ export default class OrderAndAddr extends React.Component{
 					title="设置"
 					rightText="收货地址管理"
 					rightIcon={<FontAwesome name="angle-double-right" size={18}/>}
-					style={{borderBottomWidth: 1,paddingVertical:10,backgroundColor:gColor.whiteColor,
+					style={{borderBottomWidth: 1,paddingVertical:15,backgroundColor:gColor.whiteColor,
 						borderBottomColor:gColor.borderColors}}
 					onPress={() => this.props.navigation.navigate('ReceiveAddr')}
 					textStyle={{fontSize:gFontSize.bigText}}

@@ -29,7 +29,7 @@ export default class Register extends Component {
 		return (
 			<ScrollView style={styles.outStyle}>
 				<View style={{alignItems:'center',justifyContent:'center',paddingVertical:20,marginTop:20}}>
-					<Image source={require('../assets/images/userImage.png')} style={styles.userImage} />
+					<Image source={require('../../../assets/images/userImage.png')} style={styles.userImage} />
 				</View>
 				<View>
 					<View style={styles.inputOut}>
@@ -37,7 +37,7 @@ export default class Register extends Component {
 							<FontAwesome name='phone-square' size={24} color="#ad0e11" />
 							<Text style={styles.textStyle}> 手　机:　</Text>
 						</View>				
-						<TextInput
+						<TextInput underlineColorAndroid="transparent"
 							style={{height: 50,flex:1}}
 							onChangeText={(phone) => this.setState({phone})}
 							value={this.state.phone}
@@ -48,7 +48,7 @@ export default class Register extends Component {
 							<FontAwesome name='gear' size={24} color="#ad0e11" />
 							<Text style={styles.textStyle}> 验证码:　</Text>
 						</View>				
-						<TextInput
+						<TextInput underlineColorAndroid="transparent"
 							style={{height: 50,flex:1,}}
 							onChangeText={(verification) => this.setState({verification})}
 							value={this.state.verification}
@@ -62,7 +62,7 @@ export default class Register extends Component {
 							<FontAwesome name='key' size={24} color="#ad0e11" />
 							<Text style={styles.textStyle}> 密　码:　</Text>
 						</View>				
-						<TextInput
+						<TextInput underlineColorAndroid="transparent"
 							style={{height: 50,flex:1}}
 							onChangeText={(password) => this.setState({password})}
 							value={this.state.password}
@@ -73,7 +73,7 @@ export default class Register extends Component {
 							<FontAwesome name='lock' size={24} color="#ad0e11" />
 							<Text style={styles.textStyle}> 确认密码:　</Text>
 						</View>				
-						<TextInput
+						<TextInput underlineColorAndroid="transparent"
 							style={{height: 50,flex:1}}
 							onChangeText={(confirm) => this.setState({confirm})}
 							value={this.state.confirm}
