@@ -1,0 +1,48 @@
+import React, {Component} from "react";
+import {
+	View,
+} from "react-native";
+
+import { Picker, List, WhiteSpace } from 'antd-mobile';
+import { district, provinceLite as province } from 'antd-mobile-demo-data';
+import arrayTreeFilter from 'array-tree-filter';
+
+export default class CityCode extends React.Component{
+	constructor(props) {
+		super(props);
+	    this.state = {
+	      data: [],
+	      cols: 1,
+	      pickerValue: [],
+	      asyncValue: [],
+	      visible: false,
+	    }
+	}
+	getSel() {
+		const value = this.state.pickerValue;
+		if (!value) {
+		  return '';
+		}
+		const treeChildren = arrayTreeFilter(district, (c, level) => c.value === value[level]);
+		return treeChildren.map(v => v.label).join(',');
+	}
+	render(){
+		return(
+			<List style={{ backgroundColor: 'white' }} className="picker-list">
+				<Picker
+					visible={this.state.visible}
+					data={district}
+					value={this.state.pickerValue}
+					onChange={v => this.setState({ pickerValue: v })}
+					onOk={() => this.setState({ visible: false })}
+					onDismiss={() => this.setState({ visible: false })}
+				>
+					<List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
+						Visible state
+					</List.Item>
+				</Picker>  
+			</List>
+		)
+	
+	}
+}
