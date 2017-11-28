@@ -41,13 +41,21 @@ export default class OrderAndAddr extends React.Component{
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>收货人姓名：</Text>
 						<View style={{width:'75%',}}>
-							<UselessTextInput/>
+							<TextInput 
+              placeholder="" 
+              style={styles.textInp} 
+              underlineColorAndroid="transparent"
+              />
 						</View>
 					</View>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>手机号码：</Text>
 						<View style={{width:'75%',}}>
-							<UselessTextInput />
+							<TextInput 
+              placeholder="" 
+              style={styles.textInp} 
+              underlineColorAndroid="transparent"
+              />
 						</View>
 					</View>
 					 <List style={{marginTop: 15, borderWidth: 1, marginHorizontal: 15, borderColor: gColor.borderColors}}>
@@ -65,7 +73,7 @@ export default class OrderAndAddr extends React.Component{
               </Picker>  
            </List>
            <View style={{margin: 15, flexDirection: "row"}}>
-             <Text>详细地址：</Text>
+             <Text style={styles.txtSty}>详细地址：</Text>
              <TextInput 
               placeholder="" 
               style={{borderWidth: 1, flex: 1, borderColor: gColor.borderColors,}} 
