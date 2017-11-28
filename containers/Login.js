@@ -64,10 +64,7 @@ export default class Login extends React.Component{
 						</TouchableOpacity>
 					</View>
 				</View>
-				
-
-
-				<Test />
+			
 			</ScrollView>
 		)
 	}
