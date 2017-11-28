@@ -35,7 +35,7 @@ export default class ShowIndex extends Component {
 	}
 	render() {
 		return (
-			<ScrollView>
+			<ScrollView style={{backgroundColor:gColor.whiteColor}}>
 				<CustomCarousel data={this.state.data} />
 				<ShoppingIcon navigation={this.props.navigation} />
 				<CustomTitle 
