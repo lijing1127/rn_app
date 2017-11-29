@@ -8,7 +8,6 @@ import Setting from "./containers/personalCenter/setting/Setting";//设置
 import Login from "./containers/personalCenter/setting/Login";//登录
 import Register from './containers/personalCenter/setting/Register'; //注册
 
-
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
 
 import AllGoods from './containers/shoppingmall/AllGoods/AllGoods'; //全部商品
