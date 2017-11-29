@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {
 	View,
+	Text,
 } from "react-native";
 
 import { Picker, List, WhiteSpace } from 'antd-mobile';
@@ -28,7 +29,7 @@ export default class CityCode extends React.Component{
 	}
 	render(){
 		return(
-			<List style={{ backgroundColor: 'white' }} className="picker-list">
+			<List style={{marginTop: 15, borderWidth: 1, marginHorizontal: 15, borderColor: gColor.borderColors}}>
 				<Picker
 					visible={this.state.visible}
 					data={district}
@@ -38,7 +39,7 @@ export default class CityCode extends React.Component{
 					onDismiss={() => this.setState({ visible: false })}
 				>
 					<List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
-						Visible state
+						<Text>省份/市/区：</Text>
 					</List.Item>
 				</Picker>  
 			</List>

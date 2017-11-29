@@ -15,7 +15,7 @@ import CustomTitle from '../components/public/CustomTitle';
 
 
 export default class ShowIndex extends Component {
-	static navigationOptions = {
+	static navigationOptions = ({navigation}) => ({
 		tabBarLabel: "服务中心",
 		tabBarIcon: ({tintColor}) => (
 			<Image source={require("../assets/images/center.png")} style={{tintColor: tintColor}} />
@@ -25,7 +25,7 @@ export default class ShowIndex extends Component {
 				<SearchBar placeholder="甘净" />
 			</View>
 		),
-	}
+	})
 	constructor(props) {
 		super(props);
 		this.state = {

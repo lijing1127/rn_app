@@ -23,7 +23,7 @@ export default class ShowIndex extends Component {
 		),
 		header: () => (
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
-				<SearchBar placeholder="甘净" />
+				<SearchBar placeholder="搜索商品" />
 			</View>
 		),
 	}

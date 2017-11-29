@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import HeadLayOut from "../HeadLayOut";
 import CustomTitle from "../../../components/public/CustomTitle";
-import { ImagePicker } from "antd-mobile";
+import ImagePicker from "../../../components/public/ImagePacker";
 
 
 
@@ -30,7 +30,6 @@ export default class Convertible extends Component {
 				{title: "身份", rightText: '用户',},
 				{title: "审核状态", rightText: '已审核',},
 			],
-			files: [],
 		}
 	}
 	_renderBaseInfo = () => {
@@ -59,12 +58,6 @@ export default class Convertible extends Component {
 		})
 		return baseInfo;
 	}
-	onChange = (files, type, index) => {
-	    console.log(files, type, index);
-	    this.setState({
-	      files,
-	    });
-	  }
 	render() {
 		const { files } = this.state;
 		return (
@@ -86,10 +79,7 @@ export default class Convertible extends Component {
 					<View style={[styles.infoBlock, {paddingHorizontal: 10, marginBottom: 5,paddingVertical:20}]}>
 						<Text style={{fontSize: gFontSize.bigText,marginBottom: 5}}>上传身份证</Text>
 						<ImagePicker
-							files={files}
-							onChange={this.onChange}
 							onImageClick={(index, fs) => console.log(index, fs)}
-							selectable={files.length < 5}
 						/>
 					</View>
 

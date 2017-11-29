@@ -50,7 +50,7 @@ import HealthPlan from "./containers/personalCenter/prescribe/HealthPlan";//我�
 
 import SearchDoctors from "./containers/HealthManagerPage/SearchDoctor"; //搜索医生
 import MyDoctors from "./containers/HealthManagerPage/MyDoctors"; //我的医生
-
+import GeneralUser from "./containers/HealthManagerPage/HealthManagerVersion/GeneralUser"; //管理师版（普通用户）
 
 
 require('./components/GlobalContants');
@@ -205,7 +205,10 @@ const scenes = {
   },
   MyDoctors: {
     screen: MyDoctors, //我的医生
-  }
+  },
+  GeneralUser: {
+    screen: GeneralUser, //管理师版（普通用户）
+  },
 
 };
 
