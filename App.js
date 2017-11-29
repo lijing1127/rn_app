@@ -3,14 +3,11 @@ import { View, StatusBar, Platform } from "react-native";
 import { StackNavigator } from 'react-navigation';
 import Home from './src/Home';
 
-<<<<<<< HEAD
-import Login from "./containers/Login"; //登录
-import Register from './containers/Register'; //注册
-=======
+
 import Setting from "./containers/personalCenter/setting/Setting";//设置
 import Login from "./containers/personalCenter/setting/Login";//登录
 import Register from './containers/personalCenter/setting/Register'; //注册
->>>>>>> e5fa455557906c93d3b0237836693e40b3b68aed
+
 
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
 
@@ -51,6 +48,11 @@ import Withdrawals from "./containers/personalCenter/CashBalance/Withdrawals"; /
 
 import Prescribe from "./containers/personalCenter/prescribe/Prescribe";//健康管理方案 
 import HealthPlan from "./containers/personalCenter/prescribe/HealthPlan";//我的健康方案
+
+import SearchDoctors from "./containers/HealthManagerPage/SearchDoctor"; //搜索医生
+import MyDoctors from "./containers/HealthManagerPage/MyDoctors"; //我的医生
+
+
 
 require('./components/GlobalContants');
 
@@ -199,6 +201,12 @@ const scenes = {
   HealthPlan: {
     screen: HealthPlan,//我的健康方案
   },
+  SearchDoctors: {
+    screen: SearchDoctors,//搜索医生
+  },
+  MyDoctors: {
+    screen: MyDoctors, //我的医生
+  }
 
 };
 

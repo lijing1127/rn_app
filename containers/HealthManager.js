@@ -14,10 +14,10 @@ import AllDocList from "./serverCenter/allDocList";//医生列表
 import CustomTitle from '../components/public/CustomTitle'; 
 
 const serIcon = [
-	{url:require('../assets/images/u266.png'), text:'健康教育'},
-	{url:require('../assets/images/u266.png'), text:'服务中心'},
-	{url:require('../assets/images/u266.png'), text:'健康管理师'},
-	{url:require('../assets/images/u266.png'), text:'活动'},
+	{url:require('../assets/images/search.png'), text:'搜索医生',nav:'SearchDoctors'},
+	{url:require('../assets/images/archives.png'), text:'健康档案',nav:'BasicRecord'},
+	{url:require('../assets/images/programme.png'), text:'我的方案',nav:'Prescribe'},
+	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'MyDoctors'},
 ];
 
 export default class ServerCenter extends Component {
@@ -42,7 +42,7 @@ export default class ServerCenter extends Component {
 		return (
 			<ScrollView>
 				<CustomCarousel data={this.state.data} />
-				<ServerIcon dataIcon={serIcon} />
+				<ServerIcon dataIcon={serIcon} navigation={this.props.navigation} />
 				<CustomTitle 
 					title="主治医师"
 					style={{borderBottomWidth: 1,borderBottomColor:gColor.borderColors,paddingVertical:10}}
