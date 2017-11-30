@@ -213,7 +213,7 @@ const scenes = {
     screen: MyDoctors, //我的医生
   },
   ManagerIndex: {
-    screen: ManagerIndex //管理师版首页
+    screen: ManagerIndex //管理师版首页(管理师版)
   },
   CustomerList: {
     screen: CustomerList //管理师版客户列表
