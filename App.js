@@ -217,6 +217,7 @@ const scenes = {
   },
   CustomerList: {
     screen: CustomerList //管理师版客户列表
+  },
   GeneralUser: {
     screen: GeneralUser, //管理师版（普通用户）
   },
@@ -225,7 +226,7 @@ const scenes = {
   },
   GoPrescribe: {
     screen: GoPrescribe,//开方
-  }
+  },
 
 };
 

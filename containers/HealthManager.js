@@ -31,7 +31,7 @@ export default class ServerCenter extends Component {
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,alignItems: "center",}}>
 				<View style={{backgroundColor: "#efeff4", width: "100%", height: 44, flexDirection: "row", alignItems: "center", paddingRight: 5}}>
 					<View style={{flex: 2}}><SearchBar placeholder="甘净" showCancelButton={false} /></View>
-					<Text style={{color: gColor.importColor, fontSize: gFontSize.middleText,}} onPress={() => navigation.navigate("GeneralUser")}>管理师版</Text>
+					<Text style={{color: gColor.importColor, fontSize: gFontSize.middleText,}} onPress={() => navigation.navigate("ManagerIndex")}>管理师版</Text>
 				</View>
 			</View>
 		),
