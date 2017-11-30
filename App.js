@@ -50,7 +50,8 @@ import HealthPlan from "./containers/personalCenter/prescribe/HealthPlan";//我�
 
 import SearchDoctors from "./containers/HealthManagerPage/SearchDoctor"; //搜索医生
 import MyDoctors from "./containers/HealthManagerPage/MyDoctors"; //我的医生
-
+import ManagerIndex from './containers/HealthManagerPage/Manager/ManagerIndex'; //管理师版首页
+import CustomerList from './containers/HealthManagerPage/Manager/customerList'; //管理师版客户列表
 
 
 require('./components/GlobalContants');
@@ -205,6 +206,12 @@ const scenes = {
   },
   MyDoctors: {
     screen: MyDoctors, //我的医生
+  },
+  ManagerIndex: {
+    screen: ManagerIndex //管理师版首页
+  },
+  CustomerList: {
+    screen: CustomerList //管理师版客户列表
   }
 
 };
