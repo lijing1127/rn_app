@@ -66,6 +66,7 @@ export default class SearchDoctors extends Component {
 			description={item.price}
 			imageStyle={{width: gScreen.width/8, height: gScreen.width/8,}}
 			touchableStyle={{ flexDirection: "row", borderRightWidth: 0.8, borderBottomWidth: 0.8, borderColor: gColor.borderColors, marginVertical: 5, paddingVertical: 3,}}
+			onPress={() => this.props.navigation.navigate("ManagerDetails")}
 		/>
 	);
 
