@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 
-export default class Login extends React.Component{
+export default class Login extends Component{
 	static navigationOptions = {
 		title:'登录'
 	}
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
 		textAlign:'center',
 		paddingVertical:10,
 		fontSize:gFontSize.middleText,
-		color:gColor.importColor,
-		
+		color:gColor.importColor,	
 	}
 })
