@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {
+	
 	View,
 	Text,
 	Image,
@@ -17,7 +18,7 @@ const serIcon = [
 	{url:require('../assets/images/search.png'), text:'搜索医生',nav:'SearchDoctors'},
 	{url:require('../assets/images/archives.png'), text:'健康档案',nav:'BasicRecord'},
 	{url:require('../assets/images/programme.png'), text:'我的方案',nav:'Prescribe'},
-	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'MyDoctors'},
+	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'CustomInfo'},
 ];
 
 export default class ServerCenter extends Component {

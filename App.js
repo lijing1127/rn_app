@@ -52,6 +52,8 @@ import SearchDoctors from "./containers/HealthManagerPage/SearchDoctor"; //搜�
 import MyDoctors from "./containers/HealthManagerPage/MyDoctors"; //我的医生
 import GeneralUser from "./containers/HealthManagerPage/HealthManagerVersion/GeneralUser"; //管理师版（普通用户）
 
+import CustomInfo from "./containers/HealthManagerPage/CustomInfo";//客户信息
+import GoPrescribe from "./containers/HealthManagerPage/GoPrescribe";//开方
 
 require('./components/GlobalContants');
 
@@ -209,6 +211,12 @@ const scenes = {
   GeneralUser: {
     screen: GeneralUser, //管理师版（普通用户）
   },
+  CustomInfo: {
+    screen: CustomInfo,//客户信息
+  },
+  GoPrescribe: {
+    screen: GoPrescribe,//开方
+  }
 
 };
 
