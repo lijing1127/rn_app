@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {
+	
 	View,
 	Text,
 	Image,
@@ -17,21 +18,24 @@ const serIcon = [
 	{url:require('../assets/images/search.png'), text:'搜索医生',nav:'SearchDoctors'},
 	{url:require('../assets/images/archives.png'), text:'健康档案',nav:'BasicRecord'},
 	{url:require('../assets/images/programme.png'), text:'我的方案',nav:'Prescribe'},
-	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'MyDoctors'},
+	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'CustomInfo'},
 ];
 
 export default class ServerCenter extends Component {
-	static navigationOptions = {
+	static navigationOptions = ({navigation}) => ({
 		tabBarLabel: "健康管理师",
 		tabBarIcon: ({tintColor}) => (
 			<Image source={require("../assets/images/administrator.png")} style={{tintColor: tintColor}} />
 		),
 		header: () => (
-			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,}}>
-				<SearchBar placeholder="甘净" />
+			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,alignItems: "center",}}>
+				<View style={{backgroundColor: "#efeff4", width: "100%", height: 44, flexDirection: "row", alignItems: "center", paddingRight: 5}}>
+					<View style={{flex: 2}}><SearchBar placeholder="甘净" showCancelButton={false} /></View>
+					<Text style={{color: gColor.importColor, fontSize: gFontSize.middleText,}} onPress={() => navigation.navigate("ManagerIndex")}>管理师版</Text>
+				</View>
 			</View>
 		),
-	}
+	})
 	constructor(props) {
 		super(props);
 		this.state = {

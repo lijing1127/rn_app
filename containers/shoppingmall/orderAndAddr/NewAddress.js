@@ -9,8 +9,7 @@ import {
 	Alert,
 } from "react-native";
 import { Picker, List, WhiteSpace } from 'antd-mobile';
-import { district, provinceLite as province } from 'antd-mobile-demo-data';
-import arrayTreeFilter from 'array-tree-filter';
+import CityCode from "../../../components/cityCode/CityCode";
 
 export default class OrderAndAddr extends React.Component{
 	static navigationOptions = {
@@ -18,22 +17,7 @@ export default class OrderAndAddr extends React.Component{
 	}
 	constructor(props) {
 		super(props);
-    this.state = {
-      data: [],
-      cols: 1,
-      pickerValue: [],
-      asyncValue: [],
-      visible: false,
-    }
 	}
-   getSel() {
-    const value = this.state.pickerValue;
-    if (!value) {
-      return '';
-    }
-    const treeChildren = arrayTreeFilter(district, (c, level) => c.value === value[level]);
-    return treeChildren.map(v => v.label).join(',');
-  }
 	render(){
 		return(
 			<View  style={{position:'relative',height:'100%',backgroundColor:gColor.whiteColor}}>
@@ -42,47 +26,34 @@ export default class OrderAndAddr extends React.Component{
 						<Text style={styles.txtSty}>收货人姓名：</Text>
 						<View style={{width:'75%',}}>
 							<TextInput 
-              placeholder="" 
-              style={styles.textInp} 
-              underlineColorAndroid="transparent"
-              />
+				              placeholder="" 
+				              style={styles.textInp} 
+				              underlineColorAndroid="transparent"
+				              />
 						</View>
 					</View>
 					<View style={styles.listSty}>
 						<Text style={styles.txtSty}>手机号码：</Text>
 						<View style={{width:'75%',}}>
 							<TextInput 
-              placeholder="" 
-              style={styles.textInp} 
-              underlineColorAndroid="transparent"
-              />
+				              placeholder="" 
+				              style={styles.textInp} 
+				              underlineColorAndroid="transparent"
+				              />
 						</View>
 					</View>
-					 <List style={{marginTop: 15, borderWidth: 1, marginHorizontal: 15, borderColor: gColor.borderColors}}>
-               <Picker
-                visible={this.state.visible}
-                data={district}
-                value={this.state.pickerValue}
-                onChange={v => this.setState({ pickerValue: v })}
-                onOk={() => this.setState({ visible: false })}
-                onDismiss={() => this.setState({ visible: false })}
-              >
-                <List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
-                  <Text>省份/市/区：</Text>
-                </List.Item>
-              </Picker>  
-           </List>
-           <View style={{margin: 15, flexDirection: "row"}}>
-             <Text style={styles.txtSty}>详细地址：</Text>
-             <TextInput 
-              placeholder="" 
-              style={{borderWidth: 1, flex: 1, borderColor: gColor.borderColors,}} 
-              underlineColorAndroid="transparent"
-              multiline={true}
-              numberOfLines={5}
-              maxLength={120}
-              />
-           </View>
+					<CityCode />
+					<View style={{margin: 15, flexDirection: "row"}}>
+					 <Text style={styles.txtSty}>详细地址：</Text>
+					 <TextInput 
+					  placeholder="" 
+					  style={{borderWidth: 1, flex: 1, borderColor: gColor.borderColors,}} 
+					  underlineColorAndroid="transparent"
+					  multiline={true}
+					  numberOfLines={5}
+					  maxLength={120}
+					  />
+					</View>
 				</ScrollView>
 
 				<TouchableOpacity style={styles.add}>
