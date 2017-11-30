@@ -30,7 +30,7 @@ const dataIcon = [
 
 
 export default class ShowIndex extends Component {
-	static navigationOptions = {
+	static navigationOptions = ({navigation}) => ({
 		tabBarLabel: "首页",
 		tabBarIcon: ({tintColor}) => (
 			<Image source={require("../assets/images/home.png")} style={{tintColor: tintColor}}  />
@@ -40,7 +40,7 @@ export default class ShowIndex extends Component {
 				<SearchBar placeholder="甘净" />
 			</View>
 		),
-	}
+	})
 	constructor(props) {
 		super(props);
 		this.state = {

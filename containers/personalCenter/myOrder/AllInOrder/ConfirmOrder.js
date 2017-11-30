@@ -72,7 +72,7 @@ export default class ConfirmOrder extends React.Component{
               style={styles.btnSty}
               textStyle={styles.textStyle}
               dropdownStyle={[styles.dropdownStyle,styles.height2]}
-              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
+              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
         </View>
         <View style={[styles.rowSty,styles.borderBot]}>
           <Text style={styles.useSty}>使用优惠</Text>
