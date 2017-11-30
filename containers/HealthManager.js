@@ -7,12 +7,15 @@ import {
 	ScrollView,
 } from "react-native";
 import { SearchBar } from 'antd-mobile';
+import { observer } from "mobx-react/native"; 
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
 import ServerIcon from "./showIndex/IconBtn";//图标
 import Physician from "./serverCenter/Physician";//主治医师
 import AllDocList from "./serverCenter/allDocList";//医生列表
 
 import CustomTitle from '../components/public/CustomTitle'; 
+
+import HealthManagerMode from "../models/HealthManagerMode";
 
 const serIcon = [
 	{url:require('../assets/images/search.png'), text:'搜索医生',nav:'SearchDoctors'},
@@ -21,6 +24,7 @@ const serIcon = [
 	{url:require('../assets/images/Healthmanager.png'), text:'我的医生',nav:'CustomInfo'},
 ];
 
+@observer
 export default class ServerCenter extends Component {
 	static navigationOptions = ({navigation}) => ({
 		tabBarLabel: "健康管理师",
@@ -31,7 +35,16 @@ export default class ServerCenter extends Component {
 			<View style={{width: gScreen.width, backgroundColor: gColor.importColor, paddingTop: 22,alignItems: "center",}}>
 				<View style={{backgroundColor: "#efeff4", width: "100%", height: 44, flexDirection: "row", alignItems: "center", paddingRight: 5}}>
 					<View style={{flex: 2}}><SearchBar placeholder="甘净" showCancelButton={false} /></View>
-					<Text style={{color: gColor.importColor, fontSize: gFontSize.middleText,}} onPress={() => navigation.navigate("ManagerIndex")}>管理师版</Text>
+					<Text 
+						style={{color: gColor.importColor, fontSize: gFontSize.middleText,}} 
+						onPress={() => {
+							HealthManagerMode.ModelManager();
+							HealthManagerMode.isManager ? navigation.navigate("ManagerIndex") : navigation.navigate("GeneralUser")
+							}
+						}
+					>
+						管理师版
+					</Text>
 				</View>
 			</View>
 		),
