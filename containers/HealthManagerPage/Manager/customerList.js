@@ -6,39 +6,15 @@ import {
 	ScrollView,
 	StyleSheet,
 } from "react-native";
-import { TabNavigator } from 'react-navigation';
+import { Tabs,  } from 'antd-mobile';
 import ManagerDoctorHead from '../../../components/public/managerDoctorHead';//管理师版头部组件
-import allList from './allList'; //全部
-import AlreadyPass from './AlreadyPass'; //已通过
-import WaitPass from './WaitPass'; //待通过
+import AllList from "./allList";
 
-const ManagerTab = TabNavigator({
-	allList: {
-		screen: allList,
-	},
-	AlreadyPass: {
-		screen: AlreadyPass,
-	},
-	WaitPass: {
-		screen: WaitPass,
-	}
-},{
-	tabBarPosition: 'top',
-	tabBarOptions: {
-		showIcon: false,
-		inactiveTintColor: "#9e9898",
-		activeTintColor: gColor.importColor,
-		labelStyle: {
-			fontSize: gFontSize.bigText,
-		},
-		style: {
-			backgroundColor: gColor.color1,
-		},
-		indicatorStyle: {
-			height: 0,
-		}
-	},	
-})
+const tabs = [
+  { title: '全部' },
+  { title: '已审核' },
+  { title: '未审核' },
+];
 
 export default class CustomerList extends Component {
 	static navigationOptions = {
@@ -47,8 +23,10 @@ export default class CustomerList extends Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+	      selectedTab: 'blueTab',
+	    };
 	}
-
 
 	render() {
 		managerDoctorInfo = {
@@ -75,7 +53,20 @@ export default class CustomerList extends Component {
 					workStyle={styles.textStyle}
 					lifeStyle={styles.textStyle}
 				/>
-				<ManagerTab />
+				<Tabs tabs={tabs}
+			      tabBarPosition="top"
+			      swipeable={false}
+			    >
+			      <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+			       	<AllList navigation={this.props.navigation} />
+			      </View>
+			      <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+			       	<AllList navigation={this.props.navigation} />
+			      </View>
+			      <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+			       	<AllList navigation={this.props.navigation} />
+			      </View>
+			    </Tabs>
 			</View>
 		);
 	}

@@ -5,6 +5,7 @@ import {
 	Image,
 	ScrollView,
 	StyleSheet,
+	TouchableOpacity,
 } from "react-native";
 import CustomerState from '../../../components/public/customerState'; //客户状态组件
 
@@ -35,18 +36,19 @@ export default class allList extends Component {
 	_renderCustomerLists = (customerLists,key) => {
 		const { name,states,phone } = customerLists;
 		return (
-				<CustomerState
-					key={phone}
-					outViewStyle={styles.outViewStyle}
-					name={name}
-					userState={states}
-					rightStyle={styles.rightStyle}
-					nameStyle={styles.leftText}
-					stateStyle={[styles.leftText,styles.stateStyle]}
-					otherStyle={styles.btnStyle}
-					passStyle={styles.btnStyle}
-					textStyle={styles.textStyle}
-				/>			
+				<TouchableOpacity key={phone} onPress={() => this.props.navigation.navigate("CustomInfo")} style={{width: gScreen.width}}>
+					<CustomerState
+						outViewStyle={styles.outViewStyle}
+						name={name}
+						userState={states}
+						rightStyle={styles.rightStyle}
+						nameStyle={styles.leftText}
+						stateStyle={[styles.leftText,styles.stateStyle]}
+						otherStyle={styles.btnStyle}
+						passStyle={styles.btnStyle}
+						textStyle={styles.textStyle}
+					/>			
+				</TouchableOpacity>
 		)
 	}
 
