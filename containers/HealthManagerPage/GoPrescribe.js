@@ -8,61 +8,58 @@ import {
 	TextInput,
 	TouchableOpacity
 } from "react-native";
+import {observer} from "mobx-react/native";
 import { FontAwesome } from '@expo/vector-icons';
 import BasicRecord from "../personalCenter/myHealthRecord/BasicRecord";
 import DynamicData from "../personalCenter/myHealthRecord/DynamicData";
 import ModalDropdown from 'react-native-modal-dropdown';
+import GoPrescribeMode from "../../models/GoPrescribeMode";
 
+let i = 0;
 
+@observer
 class ProList extends Component{
 	constructor(props){
 		super(props);	
-		this.state = {
-			index:'',
-			proListes:['1','2'],
-		}	
 	}
-	handleDel(index){
+	handleDel =() => {
 		// alert('删除');
 		// const proListes = [...this.state.proListes];
 		// proListes.splice(index,1);
 		// this.setState({proListes});
-	}
-	_renderItem(){
-		const proLists = this.props.proListes.map((item,index) => {
-			return(
-				<View style={[styles.row,{marginBottom:10}]} key={index}>
-					<View style={{alignItems:'center',width:'55%',marginLeft:10}}>
-						<ModalDropdown options={['御邦甘净','御邦C筑','阿拉伯糖','护航心灯','虚拟商品YBZ会员商品']} defaultValue="御邦甘净" 
-			              style={styles.btnSty}
-			              textStyle={styles.textStyle}
-			              dropdownStyle={styles.dropdownStyle}
-			              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
-			        </View>
-
-		            <View style={styles.inputOut}>
-			            <TextInput underlineColorAndroid="transparent" 
-			            	style={{width:'90%'}}
-			            />
-			        </View>
-			        <View style={{alignItems:'center'}}>
-						<TouchableOpacity style={{marginLeft:10}} onPress={this.handleDel}>
-							<Text style={styles.delete}>删除</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
-			)
-		})
-		return proLists;
+		// GoPrescribeMode.list.splice(this.props.indexProps -1, 1);
+		let a = GoPrescribeMode.list.findIndex((value) => {
+			return value == this.props.indexProps;
+		});
+		GoPrescribeMode.list.splice(a, 1);
 	}
 	render(){
 		return(
-			<View>
-				{this._renderItem()}
+			<View style={[styles.row,{marginBottom:10}]}>
+				<View style={{alignItems:'center',width:'55%',marginLeft:10}}>
+					<ModalDropdown options={['御邦甘净','御邦C筑','阿拉伯糖','护航心灯','虚拟商品YBZ会员商品']} defaultValue="御邦甘净" 
+		              style={styles.btnSty}
+		              textStyle={styles.textStyle}
+		              dropdownStyle={styles.dropdownStyle}
+		              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
+		        </View>
+
+	            <View style={styles.inputOut}>
+		            <TextInput underlineColorAndroid="transparent" 
+		            	style={{width:'90%'}}
+		            />
+		        </View>
+		        <View style={{alignItems:'center'}}>
+					<TouchableOpacity style={{marginLeft:10}} onPress={this.handleDel}>
+						<Text style={styles.delete}>删除</Text>
+					</TouchableOpacity>
+				</View>
 			</View>
 		)
 	}
 }
+
+@observer
 export default class GoPrescribe extends Component{
 	static navigationOptions = {
 		title:'开方'
@@ -71,16 +68,32 @@ export default class GoPrescribe extends Component{
 		super(props);
 		this.state = {
 			num:'',
-			prolistes: ['1'],
 		}
 	}
 	handleAdd = () => {
-		this.setState({
-			prolistes: ['23','23'],
-		})
+		// if (GoPrescribeMode.list.length == 0) {
+		// 	i = 0;
+		// 	i ++;
+		// }else {
+		// 	i ++;
+		// }
+		if (GoPrescribeMode.list.length == 0) {
+			i = 0;
+		}
+		i ++;
+		GoPrescribeMode.list.push(...[i]);
+		console.log(GoPrescribeMode.list.slice());
 	}
 
 	render(){
+		let listItem;
+		if ( GoPrescribeMode.list ) {
+			listItem = GoPrescribeMode.list.map((item) => (
+				<ProList key={item} indexProps={item} />
+			))
+		}else {
+			listItem = null;
+		}
 		return(
 			<ScrollView>
 				<View style={styles.contain}>
@@ -94,7 +107,7 @@ export default class GoPrescribe extends Component{
 						</View>
 					</View>
 					
-					<ProList proListes={this.state.prolistes}/>
+					{listItem}
 
 					<View style={styles.submit}>
 						<TouchableOpacity style={styles.touch}>
