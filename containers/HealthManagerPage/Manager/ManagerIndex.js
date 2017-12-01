@@ -16,6 +16,7 @@ const cusIcon = [
 	{url:require('../../../assets/images/abnormal.png'), text:'异常',nav:''},
 ];
 
+
 export default class ManagerIndex extends Component {
 	static navigationOptions = {
 		title: "管理师版",

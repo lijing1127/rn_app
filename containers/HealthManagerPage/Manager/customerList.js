@@ -6,8 +6,39 @@ import {
 	ScrollView,
 	StyleSheet,
 } from "react-native";
+import { TabNavigator } from 'react-navigation';
 import ManagerDoctorHead from '../../../components/public/managerDoctorHead';//管理师版头部组件
+import allList from './allList'; //全部
+import AlreadyPass from './AlreadyPass'; //已通过
+import WaitPass from './WaitPass'; //待通过
 
+const ManagerTab = TabNavigator({
+	allList: {
+		screen: allList,
+	},
+	AlreadyPass: {
+		screen: AlreadyPass,
+	},
+	WaitPass: {
+		screen: WaitPass,
+	}
+},{
+	tabBarPosition: 'top',
+	tabBarOptions: {
+		showIcon: false,
+		inactiveTintColor: "#9e9898",
+		activeTintColor: gColor.importColor,
+		labelStyle: {
+			fontSize: gFontSize.bigText,
+		},
+		style: {
+			backgroundColor: gColor.color1,
+		},
+		indicatorStyle: {
+			height: 0,
+		}
+	},	
+})
 
 export default class CustomerList extends Component {
 	static navigationOptions = {
@@ -18,7 +49,6 @@ export default class CustomerList extends Component {
 		super(props);
 	}
 
-	
 
 	render() {
 		managerDoctorInfo = {
@@ -45,6 +75,7 @@ export default class CustomerList extends Component {
 					workStyle={styles.textStyle}
 					lifeStyle={styles.textStyle}
 				/>
+				<ManagerTab />
 			</ScrollView>
 		);
 	}
