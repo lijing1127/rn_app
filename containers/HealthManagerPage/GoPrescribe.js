@@ -13,6 +13,56 @@ import BasicRecord from "../personalCenter/myHealthRecord/BasicRecord";
 import DynamicData from "../personalCenter/myHealthRecord/DynamicData";
 import ModalDropdown from 'react-native-modal-dropdown';
 
+
+class ProList extends Component{
+	constructor(props){
+		super(props);	
+		this.state = {
+			index:'',
+			proListes:['1','2'],
+		}	
+	}
+	handleDel(index){
+		// alert('删除');
+		// const proListes = [...this.state.proListes];
+		// proListes.splice(index,1);
+		// this.setState({proListes});
+	}
+	_renderItem(){
+		const proLists = this.props.proListes.map((item,index) => {
+			return(
+				<View style={[styles.row,{marginBottom:10}]} key={index}>
+					<View style={{alignItems:'center',width:'55%',marginLeft:10}}>
+						<ModalDropdown options={['御邦甘净','御邦C筑','阿拉伯糖','护航心灯','虚拟商品YBZ会员商品']} defaultValue="御邦甘净" 
+			              style={styles.btnSty}
+			              textStyle={styles.textStyle}
+			              dropdownStyle={styles.dropdownStyle}
+			              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
+			        </View>
+
+		            <View style={styles.inputOut}>
+			            <TextInput underlineColorAndroid="transparent" 
+			            	style={{width:'90%'}}
+			            />
+			        </View>
+			        <View style={{alignItems:'center'}}>
+						<TouchableOpacity style={{marginLeft:10}} onPress={this.handleDel}>
+							<Text style={styles.delete}>删除</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+			)
+		})
+		return proLists;
+	}
+	render(){
+		return(
+			<View>
+				{this._renderItem()}
+			</View>
+		)
+	}
+}
 export default class GoPrescribe extends Component{
 	static navigationOptions = {
 		title:'开方'
@@ -21,11 +71,13 @@ export default class GoPrescribe extends Component{
 		super(props);
 		this.state = {
 			num:'',
+			prolistes: ['1'],
 		}
 	}
-	handleAdd(){
-		alert('添加');
-		
+	handleAdd = () => {
+		this.setState({
+			prolistes: ['23','23'],
+		})
 	}
 
 	render(){
@@ -41,30 +93,9 @@ export default class GoPrescribe extends Component{
 							</TouchableOpacity>
 						</View>
 					</View>
+					
+					<ProList proListes={this.state.prolistes}/>
 
-					<View style={styles.row}>
-						<View style={{alignItems:'center',width:'55%',marginLeft:10}}>
-							<ModalDropdown options={['御邦甘净','御邦C筑','阿拉伯糖','护航心灯','虚拟商品YBZ会员商品']} defaultValue="御邦甘净" 
-				              style={styles.btnSty}
-				              textStyle={styles.textStyle}
-				              dropdownStyle={styles.dropdownStyle}
-				              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
-				        </View>
-
-			            <View style={styles.inputOut}>
-				            <TextInput underlineColorAndroid="transparent" 
-				            	style={{width:'90%'}}
-				            />
-				        </View>
-				        <View style={{alignItems:'center'}}>
-							<TouchableOpacity style={{marginLeft:10}}>
-								<Text style={styles.delete}>删除</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
-					<View>
-						
-					</View>
 					<View style={styles.submit}>
 						<TouchableOpacity style={styles.touch}>
 							<Text style={styles.txt}>提交</Text>
