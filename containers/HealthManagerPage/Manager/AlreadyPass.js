@@ -20,9 +20,7 @@ export default class AlreadyPass extends Component {
 	}
 	render() {
 		return (
-			<ScrollView>
 				<Text>AlreadyPass</Text>
-			</ScrollView>
 		);
 	}
 }

@@ -26,6 +26,10 @@ export default class allList extends Component {
 		{ name:'李婧',states:'待审核',phone:'18064079992' },
 		{ name:'李婧',states:'待审核',phone:'18064079993' },
 		{ name:'李婧',states:'待审核',phone:'18064079994' },
+		{ name:'李婧',states:'待审核',phone:'18064079995' },
+		{ name:'李婧',states:'待审核',phone:'18064079996' },
+		{ name:'李婧',states:'待审核',phone:'18064079997' },
+		{ name:'李婧',states:'待审核',phone:'18064079998' },
 	]
 
 	_renderCustomerLists = (customerLists,key) => {

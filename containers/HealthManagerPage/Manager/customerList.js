@@ -60,7 +60,7 @@ export default class CustomerList extends Component {
 		}
 		const { source,name,role,work,life,outViewStyle } = managerDoctorInfo;
 		return (
-			<ScrollView>
+			<View style={{flex: 1,}}>
 				<ManagerDoctorHead
 					source={source}
 					name={name}
@@ -76,7 +76,7 @@ export default class CustomerList extends Component {
 					lifeStyle={styles.textStyle}
 				/>
 				<ManagerTab />
-			</ScrollView>
+			</View>
 		);
 	}
 }

@@ -17,9 +17,7 @@ export default class CustomerList extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	
-
 	render() {
 		managerDoctorInfo = {
 			source:require('../../../assets/images/doc.jpg'),
