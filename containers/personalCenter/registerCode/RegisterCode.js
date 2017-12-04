@@ -5,6 +5,7 @@ import {
 	ScrollView,
 	Image,
 } from "react-native";
+import QRCode from "react-native-qrcode";
 
 class RegisterCode extends Component {
 	static navigationOptions = {
@@ -17,18 +18,22 @@ class RegisterCode extends Component {
 		return (
 			<View>
 				<Image 
-					source={require("../../../assets/images/health.jpg")}
+					source={require("../../../assets/images/invitation.png")}
 					style={{width: gScreen.width, height: gScreen.height}}
 				>
 					<Text style={{margin: 8}}>
 						<Text style={{color: "red"}}>提示：</Text>
 						此二维码用于邀请用户注册御易健平台
 					</Text>
-					<Image 
-							source={require('../../../assets/images/erweima.png')}
-							style={{width: 160, height: 160, position: "absolute", bottom: gScreen.height/4, right: 20}}
-						/>
-				</Image>		
+					<View style={{position: "absolute", bottom: gScreen.height/4, right: 20}}>
+						<QRCode
+							value={'http://facebook.github.io/react-native/'}
+							size={140}
+							bgColor='purple'
+							fgColor='white'
+						/>		
+					</View>
+				</Image>
 			</View>
 		);
 	}
