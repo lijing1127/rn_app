@@ -53,9 +53,9 @@ import MyDoctors from "./containers/HealthManagerPage/MyDoctors"; //我的医生
 
 import ManagerIndex from './containers/HealthManagerPage/Manager/ManagerIndex'; //管理师版首页
 import CustomerList from './containers/HealthManagerPage/Manager/customerList'; //管理师版客户列表
-import ManagerDetails from './containers/HealthManagerPage/HealthManagerVersion/ManagerDetails'; //管理师详情
+import ManagerDetails from './containers/HealthManagerPage/Manager/ManagerDetails'; //管理师详情
 
-import GeneralUser from "./containers/HealthManagerPage/HealthManagerVersion/GeneralUser"; //管理师版（普通用户）
+import GeneralUser from "./containers/HealthManagerPage/Manager/GeneralUser"; //管理师版（普通用户）
 
 import CustomInfo from "./containers/HealthManagerPage/CustomInfo";//客户信息
 import GoPrescribe from "./containers/HealthManagerPage/GoPrescribe";//开方
