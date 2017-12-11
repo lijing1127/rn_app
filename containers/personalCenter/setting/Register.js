@@ -7,6 +7,7 @@ import {
 	TextInput,
 	TouchableOpacity,
 	Image,
+	KeyboardAvoidingView,
 } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -27,11 +28,14 @@ export default class Register extends Component {
 
 	render() {
 		return (
-			<ScrollView style={styles.outStyle}>
+			<KeyboardAvoidingView
+				style={styles.container}
+				behavior="padding"
+			>
 				<View style={{alignItems:'center',justifyContent:'center',paddingVertical:20,marginTop:20}}>
 					<Image source={require('../../../assets/images/userImage.png')} style={styles.userImage} />
 				</View>
-				<View>
+				<View style={{width: "100%"}}>
 					<View style={styles.inputOut}>
 						<View style={{flexDirection:'row'}}>
 							<FontAwesome name='phone-square' size={24} color="#ad0e11" />
@@ -82,15 +86,20 @@ export default class Register extends Component {
 					<TouchableOpacity style={styles.submitStyle}>
 						<Text style={styles.submitText}>注册</Text>
 					</TouchableOpacity>
-				</View>	
-
-			</ScrollView>
+				</View>
+        		<View style={{ height: 60 }} />
+			</KeyboardAvoidingView>
 		)
 	}
 }
 
 
 const styles = StyleSheet.create ({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 	outStyle:{
 		backgroundColor:gColor.whiteColor,
 	},

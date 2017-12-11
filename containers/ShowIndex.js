@@ -8,6 +8,7 @@ import {
 	ActivityIndicator,
 } from "react-native";
 import { SearchBar } from 'antd-mobile';
+require("../components/GlobalStorage");
 
 import CustomCarousel from "../components/public/CustomCarousel"; //轮播图
 import IconBtn from "./showIndex/IconBtn"; //八个图标
@@ -46,6 +47,16 @@ export default class ShowIndex extends Component {
 		this.state = {
 			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
 		}
+	}
+	componentDidMount() {
+		storage.load({
+			key: 'sliderImg',
+			autoSync: true,
+			syncInBackground: true,
+
+		}).then((ret) => {
+			console.log(ret);
+		})
 	}
 	render() {
 		return (
