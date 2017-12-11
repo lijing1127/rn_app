@@ -8,6 +8,7 @@ import {
 	TextInput,
 	TouchableOpacity,
   KeyboardAvoidingView,
+  AsyncStorage,
 } from "react-native";
 import {observer} from 'mobx-react/native';
 import { FontAwesome } from '@expo/vector-icons';
@@ -27,13 +28,12 @@ export default class Login extends Component{
 		}
 	}
 	_onSubmit = () => {
-		// alert(this.state.account)
-    // Users.getUser(`account=${this.state.account}&password=${this.state.password}`);
-    Users.login({account: this.state.account, password: this.state.password});
+    Users.login({account: this.state.account, password: this.state.password}).then(() => {
+      console.log(1);
+      // Users.auth.isFetching ? this.props.navigation.navigate("PersonalCenter") : null;
+
+    });
 	}
-  loginFaileCallback = (account) => {
-    console.log(1);
-  }
 	render(){
 		return(
       <KeyboardAvoidingView

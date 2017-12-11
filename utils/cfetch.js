@@ -1,7 +1,51 @@
 import fetch from "cross-fetch";
-import {AsyncStorage} from "react-native";
+require('es6-promise').polyfill();
+import {AsyncStorage, Alert} from "react-native";
 import API_CONFIG from "../config/api";
 
+const errorMessages = (res) => `${res.status} ${res.statusText}`;
+
+function check401(res) {
+	if(res.status == 401) {
+		Alert.alert(
+    	'登录',
+    	'您的账号或密码不正确,请重新输入',
+    	[
+    		{text: '确定', onPress: () => {return false}},
+    	],)
+
+    	return Promise.reject(errorMessages(res))
+	}
+	return res;
+}
+
+function check404(res) {
+	if(res.status == 404) {
+		Alert.alert(
+    	'您好',
+    	'服务器响应超时,请您稍后重试',
+    	[
+    		{text: '确定', onPress: () => {return false}},
+    	],)
+
+    	return Promise.reject(errorMessages(res))
+	}
+	return res;
+}
+
+function check500(res) {
+	if(res.status >= 500) {
+		Alert.alert(
+    	'您好',
+    	'服务器出现错误,请稍后重试',
+    	[
+    		{text: '确定', onPress: () => {return false}},
+    	],)
+
+    	return Promise.reject(errorMessages(res))
+	}
+	return res;
+}
 
 function setUriParam(keys, value, keyPostfix) {
 	let keyStr = keys[0];
@@ -72,19 +116,19 @@ const cFetch = (url, options) => {
 		'content-type': 'application/json',
 		'Access-Authorization': AsyncStorage.getItem('access_token') || '',
 	}
-	return fetch(mergeUrl, opts).then((res) => {
-		if(res.status >=400) {
-			console.log(res.status);
-			throw new Error("服务器响应失败");
-		}
-		return res.json();
-	})
-	.then((dataJson) => {
-		return console.log(dataJson);
-	})
-	.catch((err) => {
-		console.log(err);
-	})
+	return fetch(mergeUrl, opts)
+		.then(check401)
+		.then(check404)
+		.then(check500)
+		.then((res) => {
+			return res.json();
+		})
+		.then((dataJson) => {
+			return dataJson;
+		})
+		.catch((err) => {
+			console.log(err);
+		})
 }
 
 export default cFetch;
