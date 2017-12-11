@@ -11,6 +11,7 @@ export default class ShowIndex extends Component {
 		super(props);
 	}
 	render() {
+		console.log(this.props.data)
 		return (
 			<View>
 				<View style={{width: gScreen.width, height: gScreen.width/2,}}>
@@ -23,7 +24,7 @@ export default class ShowIndex extends Component {
 			          {this.props.data.map(ii => (
 			          	  <TouchableOpacity key={ii} onPress={() => alert("跳转页面接口")}>
 				              <Image
-				                source={{uri: `https://zos.alipayobjects.com/rmsportal/${ii}.png`}}
+				                source={{uri: `http://ybhm.ybyt.cc/${ii}.jpg`}}
 				                style={{width: gScreen.width, height: gScreen.width/2}}
 				              />
 			          	  </TouchableOpacity>

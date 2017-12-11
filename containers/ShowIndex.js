@@ -18,6 +18,8 @@ import Graphic from './showIndex/Graphic';//热卖产品
 import ProList from './showIndex/ProList';//产品列表
 import CustomTitle from '../components/public/CustomTitle'; 
 
+import GetAPI from '../models/getAPI';
+
 const dataIcon = [
 	{url:require('../assets/images/teach.png'), text:'健康教育',},
 	{url:require('../assets/images/service.png'), text:'服务中心',nav:'ServerCenter'},
@@ -55,12 +57,22 @@ export default class ShowIndex extends Component {
 			syncInBackground: true,
 
 		}).then((ret) => {
-			console.log(ret);
+			// console.log(ret[0].image.url);
+			ret.map((item) => {
+				this.setState({
+					data: [item.image.url]
+				})
+			})
+		console.log(this.state.data);
+			
 		})
+		// GetAPI.sliderImg(1)
 	}
 	render() {
+		console.log(this.state.data);
 		return (
 			<ScrollView>
+				<Text onPress={() => GetAPI.sliderImg(1)}>按钮</Text>
 				<CustomCarousel data={this.state.data} />
 				<IconBtn dataIcon={dataIcon} navigation={this.props.navigation} />
 				<CustomTitle 

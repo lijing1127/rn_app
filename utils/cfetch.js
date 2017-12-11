@@ -108,13 +108,15 @@ const cFetch = (url, options) => {
 
 	const opts = Object.assign({}, defaultOptions, {...options});
 	console.log(opts);
-	if(opts && opts.method == 'GET' && opts['params']) {
-		mergeUrl = mergeUrl + '?' + toQueryString(opts['params'])
+	if(opts && opts.method == 'GET' && opts['parmas']) {
+		mergeUrl = mergeUrl + '?' + toQueryString(opts['parmas'])
+		console.log(mergeUrl);
+
 	}
 	opts.headers = {
 		...opts.headers,
 		'content-type': 'application/json',
-		'Access-Authorization': AsyncStorage.getItem('access_token') || '',
+		// 'Access-Authorization': AsyncStorage.getItem('access_token') || '',
 	}
 	return fetch(mergeUrl, opts)
 		.then(check401)

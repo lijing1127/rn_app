@@ -29,9 +29,12 @@ export default class Login extends Component{
 	}
 	_onSubmit = () => {
     Users.login({account: this.state.account, password: this.state.password}).then(() => {
-      console.log(1);
+      // console.log(1);
+      console.log(Users.auth.isFetching);
       // Users.auth.isFetching ? this.props.navigation.navigate("PersonalCenter") : null;
-
+      if (Users.auth.isFetching) {
+        this.props.navigation.navigate("PersonalCenter");
+      }
     });
 	}
 	render(){
