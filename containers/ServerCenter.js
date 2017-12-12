@@ -29,7 +29,7 @@ export default class ShowIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+			data: [{"id": 32, "desc": "御易健", "url": "ybyt.cc", "image": { "url": "/uploads/slide/image/32/_.png" }, }],
 			ImageBtn: [
 				{url:require('../assets/images/u266.png'), text:'爱心解答'},
 				{url:require('../assets/images/u266.png'), text:'服务'},
@@ -41,6 +41,22 @@ export default class ShowIndex extends Component {
 				{url:require('../assets/images/lightOne.jpg'), text:'健康管理师2', description: '这部分属于详细描述的部分！'},
 			],
 		}
+	}
+	componentDidMount() {
+		storage.load({
+			key: 'sliderImg',
+			autoSync: true,
+			syncInBackground: true,
+			syncParams: {
+				number: 1,
+			},
+		}).then((ret) => {
+			this.setState({
+				data: ret,
+			})
+		}).catch(err => {
+			console.warn(err.message);
+		})
 	}
 	render() {
 		return (

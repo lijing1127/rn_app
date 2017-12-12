@@ -11,20 +11,19 @@ export default class ShowIndex extends Component {
 		super(props);
 	}
 	render() {
-		console.log(this.props.data)
 		return (
 			<View>
 				<View style={{width: gScreen.width, height: gScreen.width/2,}}>
 					<Carousel
 					  dots={true}
 			          autoplay={true}
-			          infinite
-			          selectedIndex={1}
+			          infinite={true}
+			          dotActiveStyle={{backgroundColor: gColor.importColor}}
 			        >
 			          {this.props.data.map(ii => (
-			          	  <TouchableOpacity key={ii} onPress={() => alert("跳转页面接口")}>
+			          	  <TouchableOpacity key={ii.id} onPress={() => alert("跳转页面接口")}>
 				              <Image
-				                source={{uri: `http://ybhm.ybyt.cc/${ii}.jpg`}}
+				                source={{uri: `http://ybhm.ybyt.cc/${ii.image.url}`}}
 				                style={{width: gScreen.width, height: gScreen.width/2}}
 				              />
 			          	  </TouchableOpacity>

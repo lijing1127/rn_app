@@ -4,7 +4,7 @@ import { AsyncStorage } from "react-native";
 global.storage = new Storage({
 	size: 1000,
 	storageBackend: AsyncStorage,
-	defaultExpires: null,
+	defaultExpires: 30000,
 	enableCache: true,
 	sync: require('../models/getAPI'),
 })

@@ -29,17 +29,20 @@ export default class ShowIndex extends Component {
 
 	}
 	componentDidMount() {
-		Users.getToken();
+		// Users.getToken();
+		// if ( !Users.auth.token ) {
+		// 	this.props.navigation.navigate('Login');
+		// 	return false;
+		// }
 	}
 	render() {
-		const {token} = Users.auth;
 		return (
 			<View style={{flex: 1}}>
-				{ token ? <ScrollView>
+				<ScrollView>
 					<HeadLayOut Per={true} navigation={this.props.navigation}/>
 					<MyOrder nav={this.props.navigation}/>
 					<TitleArray navigation={this.props.navigation} />
-				</ScrollView> : this.props.navigation.navigate("Login") }
+				</ScrollView>
 			</View>
 		);
 	}
