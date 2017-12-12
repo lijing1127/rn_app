@@ -37,7 +37,7 @@ export default class ShowIndex extends Component {
 			storage.load({
 				key: 'mallImg',
 				autoSync: true,
-				syncInBackground: true,
+				syncInBackground: false,
 				syncParams: {
 					number: 2,
 				},

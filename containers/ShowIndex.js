@@ -54,7 +54,7 @@ export default class ShowIndex extends Component {
 		storage.load({
 			key: 'sliderImg',
 			autoSync: true,
-			syncInBackground: true,
+			syncInBackground: false,
 			syncParams: {
 				number: 1,
 			},
@@ -69,7 +69,7 @@ export default class ShowIndex extends Component {
 		storage.load({
 			key: 'getAllWork',
 			autoSync: true,
-			syncInBackground: true,
+			syncInBackground: false,
 		}).then((ret) => {
 			this.setState({
 				allWork: ret,
