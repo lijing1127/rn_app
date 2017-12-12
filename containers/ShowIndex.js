@@ -18,8 +18,6 @@ import Graphic from './showIndex/Graphic';//热卖产品
 import ProList from './showIndex/ProList';//产品列表
 import CustomTitle from '../components/public/CustomTitle'; 
 
-import GetAPI from '../models/getAPI';
-
 const dataIcon = [
 	{url:require('../assets/images/teach.png'), text:'健康教育',},
 	{url:require('../assets/images/service.png'), text:'服务中心',nav:'ServerCenter'},
@@ -47,32 +45,42 @@ export default class ShowIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+			data: [{"id": 32, "desc": "御易健", "url": "ybyt.cc", "image": { "url": "/uploads/slide/image/32/_.png" }, }],
+			allWork: [],
 		}
 	}
 	componentDidMount() {
+		//轮播图
 		storage.load({
 			key: 'sliderImg',
 			autoSync: true,
 			syncInBackground: true,
-
+			syncParams: {
+				number: 1,
+			},
 		}).then((ret) => {
-			// console.log(ret[0].image.url);
-			ret.map((item) => {
-				this.setState({
-					data: [item.image.url]
-				})
+			this.setState({
+				data: ret,
 			})
-		console.log(this.state.data);
-			
+		}).catch(err => {
+			console.warn(err.message);
 		})
-		// GetAPI.sliderImg(1)
+		//服务中心
+		storage.load({
+			key: 'getAllWork',
+			autoSync: true,
+			syncInBackground: true,
+		}).then((ret) => {
+			this.setState({
+				allWork: ret,
+			})
+		}).catch(err => {
+			console.warn(err.message);
+		})
 	}
 	render() {
-		console.log(this.state.data);
 		return (
 			<ScrollView>
-				<Text onPress={() => GetAPI.sliderImg(1)}>按钮</Text>
 				<CustomCarousel data={this.state.data} />
 				<IconBtn dataIcon={dataIcon} navigation={this.props.navigation} />
 				<CustomTitle 
@@ -86,7 +94,7 @@ export default class ShowIndex extends Component {
 				rightText="更多"
 				style={{borderBottomWidth: 1,paddingVertical:10}}
 				/>
-				<WorkStaBtn />
+				<WorkStaBtn allWork={this.state.allWork} />
 				<CustomTitle 
 				title="热卖产品"
 				rightText="更多"

@@ -14,6 +14,8 @@ import {observer} from 'mobx-react/native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import Users from "../../../models/Users";
+require("../../../components/GlobalStorage");
+
 
 @observer
 export default class Login extends Component{
@@ -28,14 +30,21 @@ export default class Login extends Component{
 		}
 	}
 	_onSubmit = () => {
-    Users.login({account: this.state.account, password: this.state.password}).then(() => {
-      // console.log(1);
-      console.log(Users.auth.isFetching);
-      // Users.auth.isFetching ? this.props.navigation.navigate("PersonalCenter") : null;
-      if (Users.auth.isFetching) {
-        this.props.navigation.navigate("PersonalCenter");
+    storage.load({
+      key: 'login',
+      autoSync: true,
+      syncInBackground: true,
+      syncParams: {
+        account: this.state.account,
+        password: this.state.password,
+      },
+    }).then((ret) => {
+      if(ret) {
+        this.props.navigation.navigate('PersonalCenter');
       }
-    });
+    }).catch(err => {
+      console.warn(err.message);
+    })
 	}
 	render(){
 		return(

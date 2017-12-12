@@ -37,32 +37,20 @@ class User {
 		if (ret.access_token) {
 			runInAction("login success", () => {
 				AsyncStorage.setItem("access_token", ret.access_token);
-				this.auth.isFetching = true;
 			})
 		}
-		// if (ret) {
-		// 	runInAction("login success", () => {
-		// 		storage.save({
-		// 			accessToken: ret.access_token,
-		// 			expires: null, 
-		// 		})
-		// 		this.auth.isFetching = true;
-		// 		console.log(this.auth.isFetching);
-		// 	})
-		// }
-		// console.log(ret);
 	}
 
-	@action async getToken() {
-		const ret = await AsyncStorage.getItem('access_token', (error, result) => {
-			return result;
-		})
-		if (ret) {
-			runInAction("get success", () => {
-				this.auth.token = ret;
-			})
-		}
-	}
+	// @action async getToken() {
+	// 	const ret = await AsyncStorage.getItem('access_token', (error, result) => {
+	// 		return result;
+	// 	})
+	// 	if (ret) {
+	// 		runInAction("get success", () => {
+	// 			this.auth.token = ret;
+	// 		})
+	// 	}
+	// }
 }
 
 export default new User();

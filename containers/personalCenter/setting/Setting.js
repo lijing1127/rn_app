@@ -9,7 +9,8 @@ import { Toast } from "antd-mobile";
 import { FontAwesome } from '@expo/vector-icons';
 import {observer} from "mobx-react/native";
 import CustomTitle from '../../../components/public/CustomTitle'; 
-
+ 
+import Users from "../../../models/Users";
 
 @observer
 export default class HealthRecord extends Component {
@@ -23,7 +24,7 @@ export default class HealthRecord extends Component {
 		AsyncStorage.removeItem('access_token');
 		Toast.success('成功退出', 3);
 		setTimeout(() => {
-			this.props.navigation.navigate("Login");
+			Users.auth.token = "";
 		}, 5)
 	}
 	render() {

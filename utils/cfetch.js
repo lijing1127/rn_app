@@ -108,8 +108,8 @@ const cFetch = (url, options) => {
 
 	const opts = Object.assign({}, defaultOptions, {...options});
 	console.log(opts);
-	if(opts && opts.method == 'GET' && opts['parmas']) {
-		mergeUrl = mergeUrl + '?' + toQueryString(opts['parmas'])
+	if(opts && opts.method == 'GET' && opts['params']) {
+		mergeUrl = mergeUrl + '?' + toQueryString(opts['params'])
 		console.log(mergeUrl);
 
 	}

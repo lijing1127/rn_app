@@ -52,8 +52,24 @@ export default class ServerCenter extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+			data: [{"id": 32, "desc": "御易健", "url": "ybyt.cc", "image": { "url": "/uploads/slide/image/32/_.png" }, }],
 		}
+	}
+	componentDidMount() {
+		storage.load({
+			key: 'sliderImg',
+			autoSync: true,
+			syncInBackground: true,
+			syncParams: {
+				number: 1,
+			},
+		}).then((ret) => {
+			this.setState({
+				data: ret,
+			})
+		}).catch(err => {
+			console.warn(err.message);
+		})
 	}
 	render() {
 		return (

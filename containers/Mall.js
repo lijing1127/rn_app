@@ -30,8 +30,24 @@ export default class ShowIndex extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+			data: [{"id": 7, "desc": "御邦C筑", "url": "", "image": { "url": "/uploads/slide/image/7/__.jpg" }, }],
 		}		
+	}
+	componentDidMount() {
+			storage.load({
+				key: 'mallImg',
+				autoSync: true,
+				syncInBackground: true,
+				syncParams: {
+					number: 2,
+				},
+			}).then((ret) => {
+				this.setState({
+					data: ret.slice(0,4),
+				})
+			}).catch(err => {
+				console.warn(err.message);
+			})
 	}
 	render() {
 		return (
