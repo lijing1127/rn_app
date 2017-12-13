@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   AsyncStorage,
 } from "react-native";
+import { Toast } from 'antd-mobile';
 import {observer} from 'mobx-react/native';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -33,15 +34,14 @@ export default class Login extends Component{
     storage.load({
       key: 'login',
       autoSync: true,
-      syncInBackground: true,
+      syncInBackground: false,
       syncParams: {
         account: this.state.account,
         password: this.state.password,
       },
     }).then((ret) => {
-      if(ret) {
-        this.props.navigation.navigate('PersonalCenter');
-      }
+        ret.access_token ? this.props.navigation.navigate('PersonalCenter') : Toast.info("未知错误", 1);
+        console.log(ret)
     }).catch(err => {
       console.warn(err.message);
     })
