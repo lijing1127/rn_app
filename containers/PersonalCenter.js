@@ -29,11 +29,7 @@ export default class ShowIndex extends Component {
 
 	}
 	componentDidMount() {
-		// Users.getToken();
-		// if ( !Users.auth.token ) {
-		// 	this.props.navigation.navigate('Login');
-		// 	return false;
-		// }
+		
 	}
 	render() {
 		return (

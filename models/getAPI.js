@@ -82,7 +82,7 @@ module.exports = {
 	      });
 	},
 	//登录
-	@action login: async function(params) {
+	@action getToken: async function(params) {
 		let { resolve, reject, syncParams: { account, password } } = params;
 		// const ret = await cFetch(API_CONFIG.auth, {method: "POST", body: JSON.stringify({account: account, password: password})});
 		// if (ret.access_token) {
@@ -106,7 +106,7 @@ module.exports = {
 	        console.log(json);
 	        if(json){
 	          storage.save({
-	            key: 'login',
+	            key: 'getToken',
 	            data: json,
 	          });
 	          // 成功则调用resolve
