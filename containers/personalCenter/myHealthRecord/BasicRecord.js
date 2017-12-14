@@ -5,10 +5,14 @@ import {
 	Text,
 	StyleSheet,
 } from "react-native";
+import {observer} from "mobx-react/native";
 import CustomTitle from '../../../components/public/CustomTitle'; 
 import HeadLayOut from "../HeadLayOut";
 
+import Users from "../../../models/Users";
+require("../../../components/GlobalStorage");
 
+@observer
 export default class BasicRecord extends Component {
 	static navigationOptions = {
 		title:'基础档案'
@@ -16,7 +20,20 @@ export default class BasicRecord extends Component {
 	constructor(props) {
 		super(props);
 	}
+	componentDidMount() {
+		storage.load({
+			key: 'getToken',
+		}).then((ret) => {
+			if (ret) {
+				Users.getUserHealthRecord(ret.id_number);
+			}
+		}).catch(err => {
+			console.log(err, -1);
+		})
+	}
 	render() {
+		const { id_number, name, sex, phone, birthday, nation, marriage, } = Users.healthRecord;
+		const health = Users.healthRecord.health_status;
 		return (
 			<ScrollView style={{backgroundColor: gColor.whiteColor,}}>
 				<HeadLayOut />	
@@ -26,21 +43,20 @@ export default class BasicRecord extends Component {
 					textStyle={styles.leftStyle}
 				/>
 
-				<View style={styles.rowStyle}>
-					<Text style={styles.widthSty}>ID:1234563217</Text>
-					<Text style={styles.widthSty}>性别:女</Text>
+				<View style={{paddingLeft: 35}}>
+					<Text>ID: { id_number && id_number }</Text>
 				</View>
 				<View style={styles.rowStyle}>
-					<Text style={styles.widthSty}>姓名:×××</Text>
-					<Text style={styles.widthSty}>电话:123****4567</Text>
+					<Text style={styles.widthSty}>姓名: { name && name }</Text>
+					<Text style={styles.widthSty}>性别: { sex && sex }</Text>
 				</View>
 				<View style={styles.rowStyle}>
-					<Text style={styles.widthSty}>民族:汉</Text>
-					<Text style={styles.widthSty}>婚姻:未婚</Text>
+					<Text style={styles.widthSty}>电话: { phone && phone }</Text>
+					<Text style={styles.widthSty}>生日: { birthday && birthday }</Text>
 				</View>
 				<View style={styles.rowStyle}>
-					<Text style={styles.widthSty}>生日:2017年10月26日</Text>
-					<Text style={styles.widthSty}></Text>
+					<Text style={styles.widthSty}>民族: { nation && nation }</Text>
+					<Text style={styles.widthSty}>婚姻: { marriage && marriage }</Text>
 				</View>
 
 				<CustomTitle 
@@ -49,7 +65,6 @@ export default class BasicRecord extends Component {
 					textStyle={styles.leftStyle}
 				/>
 
-				
 				<View style={styles.rowSty}>
 					<Text style={styles.widthOut}>目前患有疾病:无</Text>
 				</View>

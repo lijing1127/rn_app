@@ -5,52 +5,45 @@ import API_CONFIG from "../config/api";
 // import fetch from "cross-fetch";
 
 class User {
+	//用户信息；
 	@observable auth = {
 		isFetching: false,
-		token: "",
-	}
-	// @action async getUser(data) {
-	// 	const ret = await fetch('http://ybhm.ybyt.cc/auth', {
-	// 		mode: "cors",
-	// 		method: "POST",
-	// 		headers: {"content-type":"application/x-www-form-urlencoded",
-	// 				"Accept": "application/json"},
-	// 		body: data,
-	// 	}).then(
-	// 		(response) => {return response.json()
-	// 	}).then(
-	// 		(jsonData) => {return jsonData
-	// 	}).catch((error) => {
-	// 		console.log(error);
-	// 	})
+	};
 
-	// 	if(ret) {
-	// 		runInAction("request success!", () => {
-	// 			console.log(ret);
-	// 		})
-	// 	}
-	// }
-
-	@action async login(creds) {
-		const ret = await cFetch(API_CONFIG.auth, {method: "POST", body: JSON.stringify(creds)});
-
-		if (ret.access_token) {
+	@action async getUsersInfo(userId) {
+		const ret = await cFetch(API_CONFIG.user_info, {method: "GET", params: {user_id: userId}});
+		if (ret) {
 			runInAction("login success", () => {
-				AsyncStorage.setItem("access_token", ret.access_token);
+				this.auth = Object.assign({}, {isFetching: true}, ret);
 			})
 		}
 	}
 
-	// @action async getToken() {
-	// 	const ret = await AsyncStorage.getItem('access_token', (error, result) => {
-	// 		return result;
-	// 	})
-	// 	if (ret) {
-	// 		runInAction("get success", () => {
-	// 			this.auth.token = ret;
-	// 		})
-	// 	}
-	// }
+	//微信用户信息；
+	@observable wechatAuth = {};
+
+	@action async getUserWeChatInfo(userId) {
+		const ret = await cFetch(API_CONFIG.wechat_user_info, {method: "GET", params: {user_id: userId}});
+		if (ret) {
+			runInAction("login success", () => {
+				this.wechatAuth = Object.assign({}, ret);
+				// console.log(this.wechatAuth);
+			})
+		}
+	}
+	
+	//用户健康档案
+	@observable healthRecord = {};
+
+	@action async getUserHealthRecord(idNumber) {
+		const ret = await cFetch(API_CONFIG.health_record, {method: "GET", params: {id_number: idNumber}});
+		if (ret) {
+			runInAction("get users healthrecord", () => {
+				this.healthRecord = Object.assign({}, ret);
+				console.log(JSON.stringify(this.healthRecord));
+			})
+		}
+	}
 }
 
 export default new User();

@@ -21,11 +21,20 @@ export default class HealthRecord extends Component {
 		super(props);
 	}
 	_removeToken = () => {
-		AsyncStorage.removeItem('access_token');
-		Toast.success('成功退出', 3);
-		setTimeout(() => {
-			Users.auth.token = "";
-		}, 5)
+		if ( storage.load({key: 'getToken'}) ) {
+			storage.load({
+				key: 'getToken',
+			}).then((ret) => {
+				if (ret.access_token) {
+					console.log(1);
+					storage.remove({
+						key: 'getToken',
+					}).then(() => {
+						Toast.success("成功退成账户", 3, () => this.props.navigation.navigate("Login"));
+					})
+				}
+			}).catch((error) => console.log(error))
+		}
 	}
 	render() {
 		return (

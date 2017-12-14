@@ -5,9 +5,12 @@ import {
 	Image,
 	TouchableOpacity,
 } from "react-native";
+import {observer} from "mobx-react/native";
+import Users from "../../models/Users";
 
 require("../../components/GlobalContants");
 
+@observer
 export default class HeadLayOut extends React.Component{
 	constructor(props){
 		super(props);
@@ -25,13 +28,27 @@ export default class HeadLayOut extends React.Component{
 			</View>
 		) 
 	}
+	componentDidMount() {
+		storage.load({
+			key: 'getToken',
+		}).then((ret) => {
+			console.log(ret)
+			Users.getUsersInfo(ret.id);
+			Users.getUserWeChatInfo(ret.id);
+		}).catch(err => {
+			console.log(err, -1);
+		})
+	}
 	render(){
+		console.log(Users.wechatAuth.headimgurl);
 		return(
 			<View style={{alignItems: "center",paddingVertical:20,backgroundColor:"#ad0e11",width:gScreen.width}}>
 				<View >
-					<Image source={require('../../assets/images/u266.png')} 
-						style={{width:65,height:65,borderRadius:32.5,borderColor: gColor.borderColors}}/>
-					<Text style={{marginVertical:10,textAlign: "center",color: gColor.whiteColor}}>用户名</Text>
+					<Image 
+						source={ !Users.wechatAuth.headimgurl ? require('../../assets/images/userImage.png') : {uri: Users.wechatAuth.headimgurl} }
+						style={{width:65,height:65,borderRadius:32.5,borderColor: gColor.borderColors}}
+					/>
+					<Text style={{marginVertical:10,textAlign: "center",color: gColor.whiteColor}}> { Users.auth && Users.auth.name } </Text>
 				</View>
 				{ this.props.Per ? this.renderItem() : null }
 			</View>

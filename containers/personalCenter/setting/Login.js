@@ -32,7 +32,7 @@ export default class Login extends Component{
 	}
 	_onSubmit = () => {
     storage.load({
-      key: 'login',
+      key: 'getToken',
       autoSync: true,
       syncInBackground: false,
       syncParams: {
@@ -40,8 +40,12 @@ export default class Login extends Component{
         password: this.state.password,
       },
     }).then((ret) => {
-        ret.access_token ? this.props.navigation.navigate('PersonalCenter') : Toast.info("未知错误", 1);
-        console.log(ret)
+        ret.access_token ? this.props.navigation.navigate('PersonalCenter') : Toast.fail("请输入正确的用户名和密码", 3);
+        if (ret.access_token) {
+          Toast.success("登录成功", 3, () =>  this.props.navigation.navigate('PersonalCenter'));
+        }else{
+          Toast.fail("请输入正确的用户名和密码", 3);
+        }
     }).catch(err => {
       console.warn(err.message);
     })
