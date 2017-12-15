@@ -11,7 +11,7 @@ import Register from './containers/personalCenter/setting/Register'; //注册
 import CustomerService from './containers/showIndex/service/CustomerService'; //客户服务
 
 import AllGoods from './containers/shoppingmall/AllGoods/AllGoods'; //全部商品
-import CategoryDetails from './containers/shoppingmall/AllGoods/CategoryDetails';//商品详情
+import CategoryDetails from './containers/shoppingmall/categories/CategoryDetails';//商品详情
 
 import AllOrders from "./containers/personalCenter/myOrder/AllOrders";//全部订单
 

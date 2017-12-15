@@ -5,35 +5,44 @@ import {
 	Image,
 	StyleSheet,
 } from "react-native";
+import {observer} from "mobx-react/native";
 import MallActivity from "./mallActivity";
 
+import Category from "../../models/Category";
 
-
+@observer
 export default class Activity extends Component {
 
-	activityImage = [
-		{img:require("../../assets/images/health.jpg")},
-		{img:require("../../assets/images/health.jpg")},
-	]
+	constructor(props) {
+		super(props);
+	}
 
-	_renderActivity = (activityImage,key) => {
-		const { img } = activityImage;
-
-		return (
-
-			<View key = {`${img}-${key}`} style={styles.viewStyle}>
-				<Image source={img} style={{width:gScreen.width-20,height:gScreen.width/3}}/>
-				<MallActivity />
-			</View>
-
-		)
+	componentDidMount() {
+		//获取活动
+		storage.load({
+			key: 'getActivety',
+			autoSync: true,
+			syncInBackground: false,
+		}).then((ret) => {
+			// console.log(ret);
+			ret.map( active => Category.getActivityProduct(active[0]) );
+			// this.setState({
+			// 	data: ret.slice(0,4),
+			// })
+		}).catch(err => {
+			console.warn(err.message);
+		});
 	}
 
 	render(){
+		const { activety_image, product } = Category.activityProduct;
 		return(
-				<View>
-					{this.activityImage.map(this._renderActivity)}
-				</View>			
+			<View>
+				<View style={styles.viewStyle}>
+					<Image source={{uri: `http://ybhm.ybyt.cc/${activety_image.image.url}`}} style={{width:gScreen.width-20,height:gScreen.width/3}}/>
+					<MallActivity navigation={this.props.navigation} product={product} />
+				</View>
+			</View>			
 		)
 	}
 

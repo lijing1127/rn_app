@@ -34,6 +34,7 @@ export default class ShowIndex extends Component {
 		}		
 	}
 	componentDidMount() {
+			//轮播图片
 			storage.load({
 				key: 'mallImg',
 				autoSync: true,
@@ -47,7 +48,7 @@ export default class ShowIndex extends Component {
 				})
 			}).catch(err => {
 				console.warn(err.message);
-			})
+			});
 	}
 	render() {
 		return (
@@ -60,14 +61,14 @@ export default class ShowIndex extends Component {
 					style={styles.titleStyle}
 					textStyle={styles.leftStyle}
 				/>
-				<MallList />
+				<MallList navigation={this.props.navigation} />
 				<CustomTitle 
 					title="活动专区"
 					rightText="更多 》"
 					style={styles.titleStyle}
 					textStyle={styles.leftStyle}
 				/>
-				<Activity />				
+				<Activity navigation={this.props.navigation} />				
 			</ScrollView>
 		);
 	}

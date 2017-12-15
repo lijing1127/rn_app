@@ -8,46 +8,13 @@ import {
 	TouchableOpacity,
 	ActivityIndicator,
 } from "react-native";
+import { observer } from "mobx-react/native";
 import ImageButton from "../../../components/public/ImageButton";
 
-const categoryItem = [
-	{id: 1, title: "点亮心灯", data: [
-		{id: 1, title: "点亮心灯", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 2, title: "点亮心灯", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 3, title: "点亮心灯", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 4, title: "点亮心灯", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		]
-	},
-	{id: 2, title: "销售商品", data: [
-		{id: 1, title: "销售商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 2, title: "销售商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 3, title: "销售商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 4, title: "销售商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		]
-	},
-	{id: 3, title: "活动商品", data: [
-		{id: 1, title: "活动商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 2, title: "活动商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 3, title: "活动商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 4, title: "活动商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		]
-	},
-	{id: 4, title: "虚拟商品", data: [
-		{id: 1, title: "虚拟商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 2, title: "虚拟商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 3, title: "虚拟商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		{id: 4, title: "虚拟商品", source: require("../../../assets/images/u266.png"), price: "￥100元"},
-		]
-	},
-	{id: 5, title: "组合商品", data: [
-		{id: 1, title: "组合商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 2, title: "组合商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 3, title: "组合商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		{id: 4, title: "组合商品", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-		]
-	},
-]
+import Categoty from "../../../models/Category";
 
+
+@observer
 export default class ShoppingCategory extends Component {
 	static navigationOptions = {
 		title: "分类",
@@ -57,45 +24,45 @@ export default class ShoppingCategory extends Component {
 		this.state = {
 			lisRefresh: false,
 			refresh: false,
-			data:[
-				{id: 1, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 2, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 3, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 4, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 5, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 6, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 7, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 8, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-				{id: 9, title: "基因修复1", source: require("../../../assets/images/L-alabo.png"), price: "￥100元"},
-			],
-		}
+			sortId: 1,
+			categoryData: [{sort_id: 1, sort: "点亮心灯"},],
+		};
 	}
 
-	_keyExtractor = (item) => item.id;
+	_keyExtractor = (item) => item[0];
 
 	_renderItem = ({item}) => (
 		<ImageButton 
-			text={item.title}
-			source={item.source}
-			description={item.price}
+			text={item[1]}
+			description={item[2]}
 			imageStyle={{width: gScreen.width*0.73/2, height: gScreen.width*0.73/2,}}
 			touchableStyle={{alignItems: "center", borderRightWidth: 0.8, borderBottomWidth: 0.8, borderColor: gColor.borderColors}}
+			onPress={() => this.props.navigation.navigate("CategoryDetails", {uid: item[0]})}
 		/>
 	);
 
-	getCategory = (item) => {
-		alert(item.id);
+	_getSort = (sortId) => {
+		Categoty.getCategoryProduct(sortId);
 	};
 
-	_renderNewCategory = (item) => {
-		this.setState({
-			data: item.data,
-		})
+	componentDidMount() {
+		//分类
+		storage.load({
+			key: 'getCategory',
+		}).then((ret) => {
+			// console.log(ret);
+			this.setState({
+				categoryData: ret,
+			})
+		}).then(() => {
+			Categoty.getCategoryProduct(1);
+		}).catch(err => {
+			console.warn(err.message);
+		});
 	}
-
 	render() {
-		const getTextList = categoryItem.map((item) => 
-			<TouchableOpacity style={styles.leftBlock} key={item.id}  onPress={() => this._renderNewCategory(item)}><Text style={styles.leftText}>{item.title}</Text></TouchableOpacity>
+		const getTextList = this.state.categoryData.map((item) => 
+			<TouchableOpacity style={styles.leftBlock} key={item.sort_id} onPress={ () => this._getSort(item.sort_id) }><Text style={styles.leftText}>{item.sort}</Text></TouchableOpacity>
 		)
 		return (
 			<View style={styles.container}>
@@ -103,7 +70,7 @@ export default class ShoppingCategory extends Component {
 					{getTextList}
 				</View>
 				<FlatList 
-					data={this.state.data}
+					data={Categoty.sortProduct}
 					renderItem={this._renderItem}
 					keyExtractor={this._keyExtractor}
 					horizontal={false}

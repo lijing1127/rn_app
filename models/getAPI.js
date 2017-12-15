@@ -1,6 +1,4 @@
 import { observable, action, runInAction } from "mobx";
-import cFetch from "../utils/cfetch";
-import API_CONFIG from "../config/api";
 
 module.exports = {
 	//首页轮播图
@@ -120,6 +118,85 @@ module.exports = {
 	        console.warn(err);
 	        reject && reject(err);
 	      });
-
 	},
+
+	//商城部分
+	//分类
+	@action getCategory: async function(params) {
+		 let { resolve, reject } = params;
+		 fetch('http://ybhm.ybyt.cc/shop_mall/sort', {
+	        method: 'GET',
+	      }).then(response => {
+	        return response.json();
+	      }).then(json => {
+	        if(json){
+	          storage.save({
+	            key: 'getCategory',
+	            data: json,
+	          });
+	          // 成功则调用resolve
+	          resolve && resolve(json);
+	        }
+	        else{
+	          // 失败则调用reject
+	          reject && reject(new Error('data parse error'));
+	        }
+	      }).catch(err => {
+	        console.warn(err);
+	        reject && reject(err);
+	      });
+	},
+
+	//热卖产品
+	@action getHotProduction: async function(params) {
+		let { resolve, reject } = params;
+		 fetch('http://ybhm.ybyt.cc/shop_mall/hot_product', {
+	        method: 'GET',
+	      }).then(response => {
+	        return response.json();
+	      }).then(json => {
+	        if(json){
+	          storage.save({
+	            key: 'getHotProduction',
+	            data: json,
+	          });
+	          // 成功则调用resolve
+	          resolve && resolve(json);
+	        }
+	        else{
+	          // 失败则调用reject
+	          reject && reject(new Error('data parse error'));
+	        }
+	      }).catch(err => {
+	        console.warn(err);
+	        reject && reject(err);
+	      });
+	},
+
+	//活动
+	@action getActivety: async function(params) {
+		let { resolve, reject } = params;
+		fetch('http://ybhm.ybyt.cc/shop_mall/activity', {
+			method: 'GET',
+		}).then(response => {
+			return response.json();
+		}).then(json => {
+			if(json){
+			  storage.save({
+			    key: 'getActivety',
+			    data: json,
+			  });
+			  // 成功则调用resolve
+			  resolve && resolve(json);
+			}
+			else{
+			  // 失败则调用reject
+			  reject && reject(new Error('data parse error'));
+			}
+		}).catch(err => {
+			console.warn(err);
+			reject && reject(err);
+		});
+	},
+
 }
