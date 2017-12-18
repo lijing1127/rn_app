@@ -3,31 +3,24 @@ import {
 	View,
 	Text,
 } from "react-native";
+import {observer} from "mobx-react/native";
 import MallActivityList from "../../components/public/mallActivityList";
 
-
+@observer
 export default class MallActivity extends Component {
 
-	mallActivityLists = [
-		{name:'龙脑喷雾',source:require("../../assets/images/L-alabo.png"),price:'￥100元'},
-		{name:'龙脑喷雾',source:require("../../assets/images/L-alabo.png"),price:'￥100元'},
-		{name:'龙脑喷雾',source:require("../../assets/images/L-alabo.png"),price:'￥100元'},
-		{name:'龙脑喷雾',source:require("../../assets/images/L-alabo.png"),price:'￥100元'},		
-	]
-
-	_renderMallActivityList = (mallActivityLists,key) => {
-		const { name,source,price } = mallActivityLists;
+	_renderMallActivityList = (item) => {
 
 		return (
 			<MallActivityList
-				key = {`${name}-${key}`}
+				key = {item[0]}
 				touchableStyle={{width: gScreen.width/2, alignItems: "center",flexDirection:'row',justifyContent:'center',marginTop:5}}
-				source={source}
 				imageStyle={{width: 50, height: 50}}
-				name={name}
-				price={price}
+				name={item[1]}
+				price={item[3]}
 				nameStyle={{fontSize:gFontSize.centerText}}
 				priceStyle={{fontSize:gFontSize.smallText}}
+				onPress={() => this.props.navigation.navigate("CategoryDetails", {uid: item[0]})}
 			/>			
 		)
 	}
@@ -35,7 +28,7 @@ export default class MallActivity extends Component {
 	render(){
 		return (
 				<View style={{flexDirection:'row',flexWrap:'wrap'}}>
-					{this.mallActivityLists.map(this._renderMallActivityList)}
+					{this.props.product && this.props.product.map(this._renderMallActivityList)}
 				</View>	
 		)
 	}
