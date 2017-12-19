@@ -8,6 +8,8 @@ import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { district, provinceLite as province } from 'antd-mobile-demo-data';
 import arrayTreeFilter from 'array-tree-filter';
 
+import ChinaCityCode from "./ChinaCityCode";
+
 export default class CityCode extends React.Component{
 	constructor(props) {
 		super(props);
@@ -24,7 +26,7 @@ export default class CityCode extends React.Component{
 		if (!value) {
 		  return '';
 		}
-		const treeChildren = arrayTreeFilter(district, (c, level) => c.value === value[level]);
+		const treeChildren = arrayTreeFilter(ChinaCityCode, (c, level) => c.value === value[level]);
 		return treeChildren.map(v => v.label).join(',');
 	}
 	render(){
@@ -32,7 +34,7 @@ export default class CityCode extends React.Component{
 			<List style={{marginTop: 15, borderWidth: 1, marginHorizontal: 15, borderColor: gColor.borderColors}}>
 				<Picker
 					visible={this.state.visible}
-					data={district}
+					data={ChinaCityCode}
 					value={this.state.pickerValue}
 					onChange={v => this.setState({ pickerValue: v })}
 					onOk={() => this.setState({ visible: false })}

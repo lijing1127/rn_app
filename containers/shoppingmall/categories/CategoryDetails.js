@@ -7,7 +7,7 @@ import {
 	TouchableOpacity,
 } from "react-native";
 import {observer} from 'mobx-react/native';
-// import { Stepper } from 'antd-mobile';
+import { Stepper } from 'antd-mobile';
 
 import ProductCarousel from '../../../components/public/ProductSwipe';
 import SmallTitle from '../../../components/public/smallTitle';
@@ -27,11 +27,43 @@ export default class CategoryDetails extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			borderOneGg: false,
+			borderTwoGg: false,
 			data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
 			 val: 1,
 		}
 	}
 
+	onChange = (val) => {
+		// console.log(val);
+		this.setState({ val });
+	}
+	_changeGGOne = () => {
+		this.setState({
+			borderOneGg: !this.state.borderOneGg,
+			borderTwoGg: false,
+		})
+	}
+	_changeGGTwo = () => {
+		this.setState({
+			borderTwoGg: !this.state.borderTwoGg,
+			borderOneGg: false,
+		})
+	}
+	toBuy = () => {
+		let productionDetail = Category.productionDetail.slice()[0];
+		
+		if (this.state.borderOneGg) {
+			// alert(productionDetail[4]);
+			this.props.navigation.navigate("ConfirmOrder", {spec: productionDetail[4], count: this.state.val, price: productionDetail[3]});
+		}else if(this.state.borderTwoGg) {
+			// alert(productionDetail[5]);
+			this.props.navigation.navigate("ConfirmOrder", {spec: productionDetail[5], count: this.state.val, price: productionDetail[3]});
+		}else {
+			alert("请选择规格");
+		}
+		// this.props.navigation.navigate("ConfirmOrder"); 
+	}
 	componentDidMount() {
 		// alert(this.props.navigation.state.params.uid);
 		Category.getProductionDetail(this.props.navigation.state.params.uid);
@@ -55,12 +87,29 @@ export default class CategoryDetails extends Component {
 					<View>
 						<View style={styles.infoStyle}>
 							<Text>规格：</Text>
-							<Text style={styles.priceStyle}>{productionDetail && productionDetail[4]}</Text>
-							<Text style={styles.priceStyle}>{productionDetail && productionDetail[5]}</Text>
+							<Text 
+								style={[styles.priceStyle, this.state.borderOneGg ? styles.pricActive : styles.pricDefault]}
+								onPress={this._changeGGOne} 
+							>
+								{productionDetail && productionDetail[4]}
+							</Text>
+							<Text 
+								style={[styles.priceStyle, this.state.borderTwoGg ? styles.pricActive : styles.pricDefault]}
+								onPress={this._changeGGTwo} 
+							>
+								{productionDetail && productionDetail[5]}
+							</Text>
 						</View>
 						<View style={styles.infoStyle}>
 							<Text>数量：</Text>
-							
+							<View style={{ marginLeft: 15, width: 100, paddingVertical: 3,}}>
+								<Stepper
+					              max={10}
+					              min={1}
+					              value={this.state.val}
+					              onChange={this.onChange}
+					            />
+							</View>
 						</View>
 						{/*<View style={styles.infoStyle}>
 							<Text>包装：</Text>
@@ -99,7 +148,7 @@ export default class CategoryDetails extends Component {
 						<TouchableOpacity style={[styles.btnStyle,styles.btnBac1]}>
 							<Text style={styles.fontStyle}>加入购物车</Text>
 						</TouchableOpacity>
-						<TouchableOpacity style={[styles.btnStyle,styles.btnBac2]} onPress={() => this.props.navigation.navigate("ConfirmOrder") }>
+						<TouchableOpacity style={[styles.btnStyle,styles.btnBac2]} onPress={this.toBuy}>
 							<Text style={styles.fontStyle}>立即购买</Text>
 						</TouchableOpacity>
 					</View>					
@@ -200,6 +249,18 @@ const styles = StyleSheet.create({
 	fontStyle: {
 		fontSize:gFontSize.centerText,
 		color:gColor.whiteColor,
-	}	
+	},
+	pricActive: {
+		borderWidth: 1,
+		padding: 3,
+		backgroundColor: gColor.importColor,
+		color: gColor.whiteColor,
+		borderColor: gColor.importColor,
+	},
+	pricDefault: {
+		borderWidth: 1,
+		padding: 3,
+		borderColor: gColor.borderColors,
+	}
 
 })
