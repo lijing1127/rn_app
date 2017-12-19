@@ -198,5 +198,27 @@ module.exports = {
 			reject && reject(err);
 		});
 	},
+	//获取默认地址
+	@action getDefaultAddress: async function(params) {
+		let { resolve, reject, syncParams: { user_id } } = params;
+		fetch(`http://ybhm.ybyt.cc/shop_mall/get_default_address?user_id=${user_id}`, {
+			method: 'GET',
+		}).then(response => {
+			return response.json();
+		}).then(json => {
+			if(json){
+				storage.save({
+					key: 'getDefaultAddress',
+					data: json,
+				});
 
+				resolve && resolve(json);
+			}else {
+				reject && reject(new Error('data parse error'));
+			}
+		}).catch(err => {
+			console.warn(err);
+			reject && reject(err);
+		})
+	}
 }

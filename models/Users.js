@@ -44,6 +44,19 @@ class User {
 			})
 		}
 	}
+
+	//用户收货地址
+	@observable allAddress = [];
+
+	@action async getAllAddress(user_id) {
+		const ret = await cFetch(API_CONFIG.get_address, {method: "GET", params: {user_id: user_id}});
+		if (ret) {
+			runInAction('get all address', () => {
+				this.allAddress = ret;
+				console.log(this.allAddress);
+			})
+		}
+	}
 }
 
 export default new User();

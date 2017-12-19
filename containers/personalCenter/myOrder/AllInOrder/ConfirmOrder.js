@@ -8,6 +8,7 @@ import {
 	Alert,
 	CheckBox,
 } from "react-native";
+import {observer} from "mobx-react/native";
 import ReceiveRalate from '../../../shoppingmall/orderAndAddr/ReceiveRalate';
 import ProOrder from './ProOrder';
 import { List, InputItem } from 'antd-mobile';
@@ -39,6 +40,7 @@ class BasicInput extends React.Component {
   }
 }
 
+@observer
 export default class ConfirmOrder extends React.Component{
 
   static navigationOptions = {
@@ -48,54 +50,56 @@ export default class ConfirmOrder extends React.Component{
 	constructor(props) {
 		super(props);		
 	}
-
+  componentDidMount() {
+    // console.log(this.props.navigation.state.params.spec, this.props.navigation.state.params.count);
+  }
 	render(){
+    let navigation = this.props.navigation;
 		return(
-			<ScrollView style={{backgroundColor:gColor.whiteColor,paddingTop:10}}>
-				<ReceiveRalate />
-				<ProOrder />
-				<Text style={{color:gColor.importColor,paddingLeft:10,paddingVertical:10,
-					borderBottomWidth: 1,borderBottomColor:gColor.borderColors,}}>
-					请详细了解该活动的活动规则，选定活动，订单提交后不可更改
-				</Text>
-				<View style={styles.rowSty}>
-          <Text style={styles.useSty}>参与活动</Text>
-          <ModalDropdown options={['不参与活动','管理健康--YBJ会员', '管理健康--YBZ会员','合伙人计划','护航心灯']} defaultValue="管理健康--YBJ会员" 
-              style={styles.btnSty}
-              textStyle={styles.textStyle}
-              dropdownStyle={[styles.dropdownStyle,styles.height1]}
-              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
-        </View>
-        <View style={styles.rowSty}>
-          <Text style={styles.useSty}>支付方式</Text>
-          <ModalDropdown options={['微信支付','银行卡支付', '线下支付']} defaultValue="微信支付" 
-              style={styles.btnSty}
-              textStyle={styles.textStyle}
-              dropdownStyle={[styles.dropdownStyle,styles.height2]}
-              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
-        </View>
-        <View style={[styles.rowSty,styles.borderBot]}>
-          <Text style={styles.useSty}>使用优惠</Text>
-          <ModalDropdown options={['不使用优惠']} defaultValue="不使用优惠" 
-              style={styles.btnSty}
-              textStyle={styles.textStyle}
-              dropdownStyle={[styles.dropdownStyle,styles.height3]}
-              dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
-        </View>
-				<BasicInput />
-       
-
-				<View style={{flexDirection:'row',justifyContent:'flex-end',paddingVertical:8}}>
-					<Text style={{padding:15}}>共2件，合计￥9999</Text>
-					<TouchableOpacity style={{backgroundColor:gColor.importColor}} 
+			<View style={{flex: 1}}>
+        <ScrollView style={{backgroundColor:gColor.whiteColor,paddingTop:10}}>
+          <ReceiveRalate navigation={this.props.navigation} />
+          <ProOrder spec={navigation.state.params.spec} count={navigation.state.params.count} />
+          <Text style={{color:gColor.importColor,paddingLeft:10,paddingVertical:10,
+            borderBottomWidth: 1,borderBottomColor:gColor.borderColors,}}>
+            请详细了解该活动的活动规则，选定活动，订单提交后不可更改
+          </Text>
+          <View style={styles.rowSty}>
+            <Text style={styles.useSty}>参与活动</Text>
+            <ModalDropdown options={['不参与活动','管理健康--YBJ会员', '管理健康--YBZ会员','合伙人计划','护航心灯']} defaultValue="管理健康--YBJ会员" 
+                style={styles.btnSty}
+                textStyle={styles.textStyle}
+                dropdownStyle={[styles.dropdownStyle,styles.height1]}
+                dropdownTextHighlightStyle={styles.dropdownTextHighlightStyl}/>
+          </View>
+          <View style={styles.rowSty}>
+            <Text style={styles.useSty}>支付方式</Text>
+            <ModalDropdown options={['微信支付','银行卡支付', '线下支付']} defaultValue="微信支付" 
+                style={styles.btnSty}
+                textStyle={styles.textStyle}
+                dropdownStyle={[styles.dropdownStyle,styles.height2]}
+                dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
+          </View>
+          <View style={[styles.rowSty,styles.borderBot]}>
+            <Text style={styles.useSty}>使用优惠</Text>
+            <ModalDropdown options={['不使用优惠']} defaultValue="不使用优惠" 
+                style={styles.btnSty}
+                textStyle={styles.textStyle}
+                dropdownStyle={[styles.dropdownStyle,styles.height3]}
+                dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}/>
+          </View>
+          <BasicInput />
+          <View style={{height: 78, width: gScreen.width,}}></View>
+        </ScrollView>
+        <View style={{flexDirection:'row',justifyContent:'flex-end',paddingVertical:8, position: "absolute", bottom: 0, width: gScreen.width, backgroundColor: gColor.whiteColor}}>
+          <Text style={{padding:15}}>共{navigation.state.params.count}件，合计￥{ navigation.state.params.count * navigation.state.params.price }</Text>
+          <TouchableOpacity style={{backgroundColor:gColor.importColor}} 
             onPress={()=> this.props.navigation.navigate('GenerateOrder')}
-            >
-						<Text style={{color:gColor.whiteColor,paddingVertical:15,
-              paddingHorizontal:30}}>提交订单</Text>
-					</TouchableOpacity>
-				</View>
-
-			</ScrollView>
+          >
+            <Text style={{color:gColor.whiteColor,paddingVertical:15,paddingHorizontal:30}}>提交订单</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 		)	
 	}
 }

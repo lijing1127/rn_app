@@ -12,6 +12,8 @@ const API_CONFIG = {
 	all_product: 'shop_mall/all_product', //全部商品
 	activity_id: 'shop_mall/activity_product', //活动产品
 
+	get_address: 'shop_mall/get_address', //获取全部收货地址
+
 	// auth: 'auth', //用户登录；
 	// sliderImage: 'scroll_the_picture', //轮播图;
 	// allWork: 'work/all_work', //服务中心(工作站);

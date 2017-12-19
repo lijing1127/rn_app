@@ -19,7 +19,7 @@ const propTypes = {
 	actStyle: PropTypes.object,
 	specify: PropTypes.string,
 	specifyStyle: PropTypes.object,
-	num: PropTypes.string,
+	num: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
 	numStyle: PropTypes.object,
 	apply: PropTypes.string,
 	applyStyle: PropTypes.object,

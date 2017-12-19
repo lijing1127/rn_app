@@ -3,8 +3,11 @@ import {
 	View,
 	StyleSheet,
 } from "react-native";
+import {observer} from "mobx-react/native";
 
 import MallActivityList from '../../../../components/public/mallActivityList';
+import Category from "../../../../models/Category";
+
 const styles = StyleSheet.create({
 	touchableStyle: {
 		width: gScreen.width,
@@ -22,25 +25,23 @@ const styles = StyleSheet.create({
 	},
 })
 
+@observer
 export default class ProOrder extends React.Component{
-	ProList = [
-		{name:'龙脑喷雾',source:require("../../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
-		{name:'龙脑喷雾',source:require("../../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
-	]
+	// ProList = [
+	// 	{name:'龙脑喷雾',source:require("../../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
+	// 	{name:'龙脑喷雾',source:require("../../../../assets/images/L-alabo.png"),price:'20ml*20支/盒',specify:'￥960',num:'*1'},
+	// ]
 
-	_renderProList=(ProList,key) => {
-		const {name,source,price,specify,num} = ProList;
- 
+	_renderProList=(ProList) => { 
 		return (
 			<MallActivityList 
-				key = {`${name}-${key}`}
+				key={ProList[0]}
 				touchableStyle={styles.touchableStyle}
-				source={source}
 				imageStyle={styles.imageStyle}
-				name={name}
-				price={price}
-				specify={specify}
-				num={num}
+				name={ProList[2]}
+				price={this.props.spec}
+				specify={ProList[3]}
+				num={this.props.count}
 				nameStyle={{fontSize:gFontSize.centerText}}
 				priceStyle={{fontSize:gFontSize.smallText,paddingVertical:6}}
 				actStyle={{paddingLeft:'5%'}}
@@ -48,11 +49,13 @@ export default class ProOrder extends React.Component{
 			/>
 		)
 	}
-
+	componentDidMount() {
+		// console.log(Category.productionDetail[0].slice());
+	}
 	render(){
 		return(
 			<View >
-				{this.ProList.map(this._renderProList)}
+				{Category.productionDetail.map(this._renderProList)}
 			</View>
 		)
 	}

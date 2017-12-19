@@ -18,6 +18,9 @@ export default class OrderAndAddr extends React.Component{
 	constructor(props) {
 		super(props);
 	}
+	addNewAddress = () => {
+		
+	}
 	render(){
 		return(
 			<View  style={{position:'relative',height:'100%',backgroundColor:gColor.whiteColor}}>
@@ -56,7 +59,7 @@ export default class OrderAndAddr extends React.Component{
 					</View>
 				</ScrollView>
 
-				<TouchableOpacity style={styles.add}>
+				<TouchableOpacity style={styles.add} onPress={this.addNewAddress}>
 					<Text style={styles.addr}>保存</Text>
 				</TouchableOpacity>
 			</View>
